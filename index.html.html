@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BUD PROGRESS — Инженерные системы и оборудование</title>
+<meta name="description" content="BUD PROGRESS — поставки инженерных систем, трубопроводного оборудования и строительных материалов."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══ RESET ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:#1A2440;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-style:none}button{cursor:pointer;border:none;background:none;font-family:inherit}
+:root{
+  --navy:#1B3A7A;--navy-d:#0F2550;--navy-l:#2550A0;
+  --blue:#4A9FD5;--blue-l:#7EC8E3;--blue-pale:#E8F4FC;
+  --text:#1A2440;--muted:#5A6B8A;--border:#D6E4F0;--bg:#F5F8FC;--white:#fff;
+  --shadow-sm:0 2px 8px rgba(27,58,122,.08);--shadow-md:0 6px 24px rgba(27,58,122,.13);--shadow-lg:0 14px 44px rgba(27,58,122,.18);
+  --r:8px;--rl:14px;--t:.24s ease;
+}
+h1,h2,h3,h4{font-family:'Exo 2',sans-serif;line-height:1.2}
+h1{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:800}
+h2{font-size:clamp(1.35rem,3vw,2rem);font-weight:700}
+h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+.section{padding:68px 0}.section--gray{background:var(--bg)}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{color:var(--navy);margin-bottom:10px}
+.sec-head p{color:var(--muted);max-width:560px;margin:0 auto;font-size:1rem}
+.sec-head .ln{width:52px;height:4px;background:linear-gradient(90deg,var(--blue),var(--navy));border-radius:2px;margin:13px auto 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:600;font-size:.91rem;transition:all var(--t);cursor:pointer;white-space:nowrap}
+.bp{background:var(--navy);color:#fff}.bp:hover{background:var(--navy-l);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.bo{border:2px solid var(--navy);color:var(--navy)}.bo:hover{background:var(--navy);color:#fff}
+.bw{background:#fff;color:var(--navy)}.bw:hover{background:var(--blue-pale);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.bg{border:2px solid rgba(255,255,255,.5);color:#fff}.bg:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.badge-new{background:var(--navy);color:#fff}.badge-sale{background:#e85d04;color:#fff}
+.page{display:none}.page.active{display:block}
+
+/* ═══ TOPBAR ═══ */
+.topbar{background:var(--navy-d);color:rgba(255,255,255,.65);font-size:.78rem;padding:5px 0}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar a{color:rgba(255,255,255,.65);transition:color var(--t)}.topbar a:hover{color:#fff}
+.tbph{color:#fff!important;font-weight:700;font-size:.86rem}
+.tbl,.tbr{display:flex;align-items:center;gap:16px}
+
+/* ═══ HEADER ═══ */
+.header{background:#fff;box-shadow:var(--shadow-sm);position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--navy)}
+.header .container{display:flex;align-items:center;gap:24px;height:66px}
+.logo{display:flex;align-items:center;cursor:pointer;flex-shrink:0}
+.logo svg{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:2px;flex:1}
+.nl{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;font-size:.88rem;color:var(--text);transition:all var(--t);cursor:pointer;white-space:nowrap}
+.nl:hover,.nl.active{color:var(--navy);background:var(--blue-pale)}
+.nl svg{width:12px;height:12px;transition:transform var(--t)}
+.ni{position:relative}
+.ni:hover .nl svg{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 5px);left:0;background:#fff;min-width:225px;border-radius:var(--rl);box-shadow:var(--shadow-lg);border:1px solid var(--border);padding:7px;opacity:0;visibility:hidden;transform:translateY(-7px);transition:all var(--t);z-index:999}
+.ni:hover .dd{opacity:1;visibility:visible;transform:translateY(0)}
+.dd span{display:block;padding:8px 14px;border-radius:6px;font-size:.84rem;color:var(--muted);transition:all var(--t);cursor:pointer}
+.dd span:hover{background:var(--blue-pale);color:var(--navy);padding-left:19px}
+.hr{display:flex;align-items:center;gap:11px;margin-left:auto}
+.hph{display:flex;align-items:center;gap:7px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:.95rem;color:var(--navy);white-space:nowrap}
+.hph svg{color:var(--blue);flex-shrink:0}
+.burger{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:6px;cursor:pointer}
+.burger span{display:block;width:23px;height:2px;background:var(--navy);border-radius:2px;transition:all var(--t)}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-nav{display:none;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;box-shadow:var(--shadow-lg);z-index:9999;padding:72px 18px 28px;overflow-y:auto;transition:right .3s ease;flex-direction:column;gap:3px}
+.mob-nav.open{right:0}
+.mob-nav span,.mob-nav a{display:block;padding:11px 14px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;color:var(--text);border-bottom:1px solid var(--border);cursor:pointer}
+.mob-nav span:hover,.mob-nav a:hover{color:var(--navy);background:var(--blue-pale)}
+.mob-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998}
+.mob-ov.open{display:block}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;overflow:hidden;background:var(--navy);min-height:460px}
+.hero-track{display:flex;transition:transform .6s ease}
+.hero-slide{min-width:100%;display:flex;align-items:center;padding:84px 0;position:relative;overflow:hidden}
+.hs1{background:linear-gradient(135deg,#0F2550 0%,#1B3A7A 55%,#1B5FA0 100%)}
+.hs2{background:linear-gradient(135deg,#1B3A7A 0%,#0F2550 55%,#4A9FD5 100%)}
+.hs3{background:linear-gradient(135deg,#1B5FA0 0%,#1B3A7A 50%,#0F2550 100%)}
+.hc{position:relative;z-index:2;max-width:580px}
+.htag{display:inline-block;background:rgba(74,159,213,.25);border:1px solid rgba(74,159,213,.5);color:var(--blue-l);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 13px;border-radius:20px;margin-bottom:16px}
+.hc h1{color:#fff;margin-bottom:12px}
+.hc p{color:rgba(255,255,255,.76);font-size:1.04rem;margin-bottom:28px;max-width:460px}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.hdecor{position:absolute;right:-50px;top:50%;transform:translateY(-50%);z-index:1;opacity:.07;pointer-events:none}
+.hdecor svg{width:400px;height:400px}
+.harr button{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all var(--t);color:#fff}
+.harr button:hover{background:rgba(255,255,255,.26)}
+.hprev{left:20px}.hnext{right:20px}
+.hdots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hdot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.32);cursor:pointer;transition:all var(--t)}
+.hdot.active{background:#fff;transform:scale(1.3)}
+
+/* ═══ FEATURES STRIP ═══ */
+.fstrip{background:var(--navy)}
+.fstrip .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.fi{display:flex;align-items:center;gap:13px;padding:20px 16px;border-right:1px solid rgba(255,255,255,.08);transition:background var(--t)}
+.fi:last-child{border-right:none}
+.fi:hover{background:rgba(255,255,255,.04)}
+.fi-ic{width:40px;height:40px;border-radius:9px;background:rgba(74,159,213,.17);display:flex;align-items:center;justify-content:center;color:var(--blue-l);flex-shrink:0}
+.fi-tx strong{display:block;font-family:'Exo 2',sans-serif;font-weight:600;font-size:.86rem;color:#fff}
+.fi-tx span{font-size:.74rem;color:rgba(255,255,255,.5)}
+
+/* ═══ HOME CAT GRID ═══ */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cc{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;transition:all var(--t);cursor:pointer}
+.cc:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--blue)}
+.cc-img{height:140px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cc-img svg{width:100%;height:100%}
+.cc-body{padding:13px 15px 16px;flex:1;display:flex;flex-direction:column}
+.cc-body h3{font-size:.88rem;color:var(--navy);margin-bottom:4px;line-height:1.3}
+.cc-body p{font-size:.77rem;color:var(--muted);margin-bottom:8px;flex:1}
+.cc-lnk{font-size:.77rem;font-weight:700;color:var(--blue);font-family:'Exo 2',sans-serif;transition:letter-spacing var(--t)}
+.cc:hover .cc-lnk{letter-spacing:.02em}
+
+/* ═══ STATS ═══ */
+.stats-band{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 100%);padding:54px 0}
+.stats-band .container{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.sn{font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
+.sn em{color:var(--blue-l);font-style:normal}
+.sl{font-size:.83rem;color:rgba(255,255,255,.62)}
+
+/* ═══ ABOUT BLOCK ═══ */
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-img{border-radius:var(--rl);overflow:hidden;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative}
+.about-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.25}
+.about-badge{position:absolute;bottom:20px;right:20px;background:var(--navy);color:#fff;border-radius:var(--rl);padding:13px 17px;text-align:center}
+.about-badge strong{display:block;font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800}
+.about-badge span{font-size:.72rem;opacity:.75}
+.about-tx h2{color:var(--navy);margin-bottom:13px}
+.about-tx p{color:var(--muted);margin-bottom:14px;line-height:1.75}
+.chk{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.chk-i{display:flex;align-items:flex-start;gap:10px;font-size:.91rem}
+.chk-ic{width:21px;height:21px;border-radius:50%;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* ═══ NEWS ═══ */
+.news-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.nc{border-radius:var(--rl);background:#fff;border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;transition:all var(--t)}
+.nc:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.ni2{height:180px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.nb{padding:16px;flex:1;display:flex;flex-direction:column}
+.nd{font-size:.75rem;color:var(--muted);margin-bottom:7px}
+.nb h3{font-size:.97rem;color:var(--navy);margin-bottom:7px;line-height:1.4}
+.nb p{font-size:.83rem;color:var(--muted);flex:1;margin-bottom:12px}
+.nlink{font-size:.8rem;font-weight:700;color:var(--blue);font-family:'Exo 2',sans-serif}
+
+/* ═══ CTA ═══ */
+.cta{background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%);padding:58px 0;text-align:center}
+.cta h2{color:#fff;margin-bottom:12px}.cta p{color:rgba(255,255,255,.76);margin-bottom:28px;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ═══ PAGE HERO ═══ */
+.ph{background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy) 100%);padding:44px 0}
+.ph h1{color:#fff;margin-bottom:5px}.ph p{color:rgba(255,255,255,.7);margin-top:7px;max-width:500px}
+.bc{display:flex;align-items:center;gap:6px;font-size:.8rem;color:rgba(255,255,255,.52);margin-bottom:7px}
+.bc .cur{color:rgba(255,255,255,.88)}.bc-sep{opacity:.32}
+
+/* ═══ CATALOG LAYOUT ═══ */
+.cat-lay{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:44px 0}
+.sw{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
+.sw-t{background:var(--navy);color:#fff;padding:12px 17px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:.87rem}
+.sw-b{padding:6px}
+.sw-b span{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:6px;font-size:.83rem;color:var(--text);transition:all var(--t);cursor:pointer}
+.sw-b span:hover,.sw-b span.active{background:var(--blue-pale);color:var(--navy);font-weight:600}
+.sw-cnt{font-size:.71rem;color:var(--muted);background:var(--bg);padding:2px 7px;border-radius:10px}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;transition:all var(--t)}
+.pcard:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--blue)}
+/* Product image area — white bg like Valtec */
+.pimg{height:190px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;padding:12px}
+.pimg svg{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(27,58,122,.12))}
+.pbadge{position:absolute;top:9px;left:9px}
+.pb{padding:13px;flex:1;display:flex;flex-direction:column}
+.pc{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.pn{font-family:'Exo 2',sans-serif;font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:5px;line-height:1.35;flex:1}
+.pcode{font-size:.72rem;color:var(--muted);margin-bottom:10px}
+.pm{display:inline-flex;align-items:center;gap:4px;padding:7px 13px;border-radius:6px;background:var(--blue-pale);color:var(--navy);font-family:'Exo 2',sans-serif;font-size:.78rem;font-weight:600;transition:all var(--t);cursor:pointer;border:none;margin-top:auto}
+.pm:hover{background:var(--navy);color:#fff}
+.cs-title{font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.15rem;color:var(--navy);margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+.cs{scroll-margin-top:86px}
+
+/* ═══ ABOUT PAGE ═══ */
+.ai{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:56px 0}
+.ai p{color:var(--muted);margin-bottom:14px;line-height:1.76}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vc{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:24px 20px;text-align:center;transition:all var(--t)}
+.vc:hover{box-shadow:var(--shadow-md);border-color:var(--blue);transform:translateY(-3px)}
+.vic{width:56px;height:56px;border-radius:14px;background:var(--blue-pale);margin:0 auto 13px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.vc h3{color:var(--navy);margin-bottom:8px;font-size:.97rem}.vc p{font-size:.83rem;color:var(--muted)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tc{border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);transition:all var(--t);background:#fff}
+.tc:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.tcp{height:180px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.tcb{padding:14px;text-align:center}
+.tcb h4{color:var(--navy);margin-bottom:3px;font-size:.93rem}.tcb span{font-size:.78rem;color:var(--muted)}
+.timeline{position:relative;padding-left:36px;max-width:640px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.ti{position:relative;margin-bottom:30px}
+.ti::before{content:'';position:absolute;left:-41px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--navy);border:3px solid var(--blue)}
+.ty{font-family:'Exo 2',sans-serif;font-weight:700;color:var(--blue);margin-bottom:4px;font-size:.9rem}
+.ti h4{color:var(--navy);margin-bottom:4px;font-size:.97rem}.ti p{font-size:.84rem;color:var(--muted)}
+.pg2{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.par{aspect-ratio:2/1;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--muted);font-family:'Exo 2',sans-serif;font-weight:600;background:#fff;text-align:center;padding:9px;transition:all var(--t)}
+.par:hover{border-color:var(--blue);color:var(--navy);box-shadow:var(--shadow-sm)}
+
+/* ═══ CONTACTS ═══ */
+.cl{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;padding:56px 0}
+.cb{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:24px;margin-bottom:16px}
+.cb h3{color:var(--navy);margin-bottom:16px;font-size:.97rem}
+.cr{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.cr:last-child{margin-bottom:0}
+.ci{width:38px;height:38px;border-radius:9px;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ct strong{display:block;font-size:.88rem;color:var(--navy);margin-bottom:2px}
+.ct span{font-size:.82rem;color:var(--muted)}
+.wht{display:flex;flex-direction:column}
+.whr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:.84rem}
+.whr:last-child{border-bottom:none}
+.whr span:first-child{color:var(--muted)}.whr span:last-child{font-weight:600;color:var(--navy)}
+.mapph{border-radius:var(--rl);background:var(--bg);min-height:420px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);text-align:center;padding:36px}
+.mapph svg{width:52px;height:52px;color:var(--border);margin:0 auto 12px}
+.mapph p{color:var(--muted);font-size:.86rem;line-height:1.7}
+.mapph strong{display:block;font-family:'Exo 2',sans-serif;color:var(--navy);font-size:.97rem;margin-bottom:7px}
+.msl{display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r);border:1px solid var(--border);transition:all var(--t);cursor:pointer;margin-bottom:9px}
+.msl:last-child{margin-bottom:0}.msl:hover{border-color:var(--blue)}
+.msi{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mst strong{display:block;font-size:.86rem;color:var(--navy)}.mst span{font-size:.76rem;color:var(--muted)}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--navy-d);color:rgba(255,255,255,.68);padding:48px 0 0}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:40px}
+.fb h3{color:#fff;font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:9px}
+.fb p{font-size:.83rem;line-height:1.7;margin-bottom:16px}
+.fsoc{display:flex;gap:8px}
+.fsoc a{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;transition:all var(--t)}
+.fsoc a:hover{background:var(--blue);color:#fff}
+.fc2 h4{color:#fff;font-family:'Exo 2',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:13px}
+.fc2 ul{display:flex;flex-direction:column;gap:7px}
+.fc2 ul li span{font-size:.8rem;color:rgba(255,255,255,.55);transition:color var(--t);cursor:pointer;display:block}
+.fc2 ul li span:hover{color:#fff}
+.fcts{display:flex;flex-direction:column;gap:12px}
+.fcr{display:flex;align-items:flex-start;gap:8px}
+.fcr svg{color:var(--blue);margin-top:2px;flex-shrink:0}
+.fct{font-size:.8rem}.fct strong{display:block;color:#fff;font-size:.85rem}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.77rem}
+.fbot a{color:rgba(255,255,255,.42);transition:color var(--t)}.fbot a:hover{color:#fff}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .cat-grid{grid-template-columns:repeat(3,1fr)}.fstrip .container{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr 1fr}.stats-band .container{grid-template-columns:repeat(2,1fr)}
+  .tg{grid-template-columns:repeat(3,1fr)}.pg{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav,.hph{display:none}.burger{display:flex}.mob-nav{display:flex}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}.about-g,.ai,.cl{grid-template-columns:1fr}
+  .news-g{grid-template-columns:1fr}.cat-lay{grid-template-columns:1fr}
+  .pg{grid-template-columns:1fr}.vg{grid-template-columns:1fr 1fr}
+  .tg{grid-template-columns:repeat(2,1fr)}.pg2{grid-template-columns:repeat(3,1fr)}
+  .hero-slide{padding:56px 0}.hdecor{display:none}
+}
+@media(max-width:480px){
+  .cat-grid{grid-template-columns:1fr}.fstrip .container{grid-template-columns:1fr}
+  .stats-band .container{grid-template-columns:1fr 1fr}.vg{grid-template-columns:1fr}
+  .hbtns{flex-direction:column}.pg2{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <div class="container">
+    <div class="tbl">
+      <span>🕐 Пн–Пт: 9:00–18:00</span><span>|</span>
+      <span>г. [Город], ул. [Адрес]</span>
+    </div>
+    <div class="tbr">
+      <a href="mailto:info@budprogress.kz">info@budprogress.kz</a>
+      <a href="tel:+70000000000" class="tbph">+7 (000) 000-00-00</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header class="header">
+  <div class="container">
+    <div class="logo" onclick="go('home')">
+      <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="21" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">BUD</text>
+        <text x="2" y="44" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">PR</text>
+        <!-- Spinner O -->
+        <g transform="translate(52.5,32)">
+          <circle r="2.1" fill="#1B3A7A" opacity=".92" transform="rotate(0)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#1B3A7A" opacity=".78" transform="rotate(30)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#2A4FA0" opacity=".62" transform="rotate(60)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#4A9FD5" opacity=".5"  transform="rotate(90)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#4A9FD5" opacity=".38" transform="rotate(120)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#7EC8E3" opacity=".28" transform="rotate(150)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#7EC8E3" opacity=".2"  transform="rotate(180)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#B0D8EC" opacity=".14" transform="rotate(210)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#B0D8EC" opacity=".10" transform="rotate(240)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#D0E8F5" opacity=".08" transform="rotate(270)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#D0E8F5" opacity=".09" transform="rotate(300)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#1B3A7A" opacity=".5"  transform="rotate(330)translate(0,-8.5)"/>
+        </g>
+        <text x="65" y="44" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">GRESS</text>
+        <text x="158" y="29" font-family="sans-serif" font-size="8" fill="#1B3A7A" opacity=".65">®</text>
+      </svg>
+    </div>
+
+    <nav class="nav">
+      <div class="ni">
+        <div class="nl" onclick="go('catalog')">Каталог <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="dd">
+          <span onclick="go('catalog','pipes')">Трубопроводные системы</span>
+          <span onclick="go('catalog','valves')">Запорная арматура</span>
+          <span onclick="go('catalog','heating')">Отопительное оборудование</span>
+          <span onclick="go('catalog','water')">Водоснабжение</span>
+          <span onclick="go('catalog','sewage')">Канализация</span>
+          <span onclick="go('catalog','ventilation')">Вентиляция</span>
+          <span onclick="go('catalog','tools')">Инструмент</span>
+          <span onclick="go('catalog','supplies')">Расходные материалы</span>
+        </div>
+      </div>
+      <div class="ni"><div class="nl" onclick="go('about')">О компании</div></div>
+      <div class="ni"><div class="nl" onclick="go('contacts')">Контакты</div></div>
+    </nav>
+
+    <div class="hr">
+      <a href="tel:+70000000000" class="hph">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +7 (000) 000-00-00
+      </a>
+      <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mob-nav" id="mobNav">
+  <span onclick="go('home');cm()">🏠 Главная</span>
+  <span onclick="go('catalog');cm()">📦 Каталог</span>
+  <span onclick="go('catalog','pipes');cm()">— Трубопроводные системы</span>
+  <span onclick="go('catalog','valves');cm()">— Запорная арматура</span>
+  <span onclick="go('catalog','heating');cm()">— Отопительное оборудование</span>
+  <span onclick="go('catalog','water');cm()">— Водоснабжение</span>
+  <span onclick="go('catalog','sewage');cm()">— Канализация</span>
+  <span onclick="go('about');cm()">🏢 О компании</span>
+  <span onclick="go('contacts');cm()">📍 Контакты</span>
+  <a href="tel:+70000000000">📞 +7 (000) 000-00-00</a>
+</nav>
+<div class="mob-ov" id="mobOv" onclick="cm()"></div>
+
+<!-- ═══════════════════════════════════════
+   SVG PRODUCT ILLUSTRATIONS (reusable defs)
+═══════════════════════════════════════ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- BALL VALVE (шаровой кран) -->
+    <g id="prod-ballvalve">
+      <rect x="60" y="75" width="80" height="50" rx="6" fill="#C8A020" stroke="#8B6800" stroke-width="1.5"/>
+      <rect x="75" y="60" width="50" height="20" rx="3" fill="#D4AA22" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="100" cy="100" rx="22" ry="22" fill="#E8C034" stroke="#8B6800" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="12" fill="#B8920E" stroke="#8B6800" stroke-width="1"/>
+      <circle cx="100" cy="100" r="5" fill="#6B5500"/>
+      <rect x="28" y="92" width="32" height="16" rx="4" fill="#B0B8C0" stroke="#707880" stroke-width="1.2"/>
+      <rect x="140" y="92" width="32" height="16" rx="4" fill="#B0B8C0" stroke="#707880" stroke-width="1.2"/>
+      <rect x="92" y="38" width="16" height="28" rx="3" fill="#B0B8C0" stroke="#707880" stroke-width="1.2"/>
+      <rect x="84" y="32" width="32" height="10" rx="3" fill="#B0B8C0" stroke="#707880" stroke-width="1.2"/>
+      <!-- thread lines -->
+      <line x1="28" y1="96" x2="28" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <line x1="32" y1="96" x2="32" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <line x1="36" y1="96" x2="36" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <line x1="156" y1="96" x2="156" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <line x1="160" y1="96" x2="160" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <line x1="164" y1="96" x2="164" y2="104" stroke="#8A9298" stroke-width="1"/>
+      <!-- highlight -->
+      <ellipse cx="90" cy="88" rx="7" ry="5" fill="rgba(255,255,255,.25)" transform="rotate(-20,90,88)"/>
+    </g>
+
+    <!-- BALL VALVE WITH LEVER (кран с рычагом) -->
+    <g id="prod-valve-lever">
+      <rect x="55" y="80" width="90" height="42" rx="6" fill="#C8A020" stroke="#8B6800" stroke-width="1.5"/>
+      <ellipse cx="100" cy="101" rx="20" ry="20" fill="#E8C034" stroke="#8B6800" stroke-width="1.5"/>
+      <circle cx="100" cy="101" r="10" fill="#B8920E" stroke="#8B6800" stroke-width="1"/>
+      <rect x="20" y="94" width="35" height="14" rx="4" fill="#A8B2BC" stroke="#707880" stroke-width="1.2"/>
+      <rect x="145" y="94" width="35" height="14" rx="4" fill="#A8B2BC" stroke="#707880" stroke-width="1.2"/>
+      <!-- lever -->
+      <rect x="97" y="52" width="6" height="30" rx="2" fill="#A8B2BC" stroke="#707880" stroke-width="1"/>
+      <rect x="86" y="48" width="28" height="10" rx="4" fill="#B0B8C0" stroke="#707880" stroke-width="1.2"/>
+      <ellipse cx="86" cy="53" rx="4" ry="4" fill="#909AA2"/>
+      <ellipse cx="114" cy="53" rx="4" ry="4" fill="#909AA2"/>
+    </g>
+
+    <!-- COMPRESSION FITTING (фитинг компрессионный) -->
+    <g id="prod-fitting">
+      <rect x="30" y="88" width="50" height="24" rx="3" fill="#D4AA22" stroke="#8B6800" stroke-width="1.2"/>
+      <rect x="120" y="88" width="50" height="24" rx="3" fill="#D4AA22" stroke="#8B6800" stroke-width="1.2"/>
+      <polygon points="80,78 120,78 125,100 75,100" fill="#E8C034" stroke="#8B6800" stroke-width="1.3"/>
+      <ellipse cx="100" cy="100" rx="26" ry="14" fill="#C8A020" stroke="#8B6800" stroke-width="1.4"/>
+      <ellipse cx="100" cy="100" rx="10" ry="10" fill="#8B6800" opacity=".4"/>
+      <line x1="30" y1="93" x2="30" y2="111" stroke="#8A7210" stroke-width="1"/>
+      <line x1="34" y1="93" x2="34" y2="111" stroke="#8A7210" stroke-width="1"/>
+      <line x1="38" y1="93" x2="38" y2="111" stroke="#8A7210" stroke-width="1"/>
+      <line x1="162" y1="93" x2="162" y2="111" stroke="#8A7210" stroke-width="1"/>
+      <line x1="166" y1="93" x2="166" y2="111" stroke="#8A7210" stroke-width="1"/>
+    </g>
+
+    <!-- MULTILAYER PIPE cross-section (труба металлополимерная) -->
+    <g id="prod-pipe-mp">
+      <!-- pipe body (perspective view) -->
+      <rect x="18" y="82" width="164" height="36" rx="18" fill="#4A7EB5" stroke="#2A5A8A" stroke-width="1.5"/>
+      <rect x="18" y="82" width="164" height="18" rx="18" fill="#5A94C8" stroke="none"/>
+      <!-- cross section end caps -->
+      <ellipse cx="18" cy="100" rx="18" ry="18" fill="#3A6A9A" stroke="#2A5A8A" stroke-width="1.5"/>
+      <ellipse cx="18" cy="100" rx="12" ry="12" fill="#5E8AB5"/>
+      <ellipse cx="18" cy="100" rx="8" ry="8" fill="#C8A020" stroke="#8B6800" stroke-width=".8"/>
+      <ellipse cx="18" cy="100" rx="5" ry="5" fill="#4A7EB5"/>
+      <ellipse cx="18" cy="100" rx="3" ry="3" fill="#2A3A60"/>
+      <!-- Label on pipe -->
+      <text x="80" y="105" font-family="'Exo 2',sans-serif" font-size="11" font-weight="600" fill="white" opacity=".9">PEX-AL-PEX</text>
+      <!-- highlight -->
+      <rect x="18" y="83" width="164" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+    </g>
+
+    <!-- PP PIPE (труба ПП) -->
+    <g id="prod-pipe-pp">
+      <rect x="20" y="84" width="160" height="32" rx="16" fill="#e8780a" stroke="#b05800" stroke-width="1.5"/>
+      <rect x="20" y="84" width="160" height="16" rx="16" fill="#f09030" stroke="none"/>
+      <ellipse cx="20" cy="100" rx="16" ry="16" fill="#c86000" stroke="#b05800" stroke-width="1.5"/>
+      <ellipse cx="20" cy="100" rx="10" ry="10" fill="#e07020"/>
+      <ellipse cx="20" cy="100" rx="5" ry="5" fill="#802800"/>
+      <text x="72" y="104" font-family="'Exo 2',sans-serif" font-size="11" font-weight="600" fill="white" opacity=".9">PP-R PN 20</text>
+      <rect x="20" y="85" width="160" height="6" rx="3" fill="rgba(255,255,255,.2)"/>
+    </g>
+
+    <!-- PEX PIPE (труба сшитый полиэтилен) -->
+    <g id="prod-pipe-pex">
+      <rect x="20" y="84" width="160" height="32" rx="16" fill="#1E7AC0" stroke="#0A5A9C" stroke-width="1.5"/>
+      <rect x="20" y="84" width="160" height="16" rx="16" fill="#4A9FD5" stroke="none"/>
+      <ellipse cx="20" cy="100" rx="16" ry="16" fill="#0E6AB0" stroke="#0A5A9C" stroke-width="1.5"/>
+      <ellipse cx="20" cy="100" rx="10" ry="10" fill="#2A8AD0"/>
+      <ellipse cx="20" cy="100" rx="5" ry="5" fill="#04386C"/>
+      <text x="66" y="104" font-family="'Exo 2',sans-serif" font-size="11" font-weight="600" fill="white" opacity=".9">PE-Xa EVOH</text>
+      <rect x="20" y="85" width="160" height="6" rx="3" fill="rgba(255,255,255,.2)"/>
+    </g>
+
+    <!-- RADIATOR (радиатор секционный) -->
+    <g id="prod-radiator">
+      <!-- sections -->
+      <rect x="16" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="16" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="16" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="42" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="42" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="42" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="68" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="68" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="68" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="94" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="94" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="94" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="120" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="120" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="120" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="146" y="30" width="22" height="140" rx="4" fill="#D0D8E0" stroke="#9AA2AA" stroke-width="1.2"/>
+      <rect x="146" y="30" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <rect x="146" y="162" width="22" height="8" rx="2" fill="#B0B8C4"/>
+      <!-- top/bottom connectors -->
+      <rect x="12" y="26" width="164" height="10" rx="4" fill="#B8C0C8" stroke="#9AA2AA" stroke-width="1"/>
+      <rect x="12" y="164" width="164" height="10" rx="4" fill="#B8C0C8" stroke="#9AA2AA" stroke-width="1"/>
+      <!-- highlights -->
+      <rect x="17" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+      <rect x="43" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+      <rect x="69" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+      <rect x="95" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+      <rect x="121" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+      <rect x="147" y="31" width="6" height="138" rx="3" fill="rgba(255,255,255,.35)"/>
+    </g>
+
+    <!-- CIRCULATION PUMP (насос циркуляционный) -->
+    <g id="prod-pump">
+      <!-- body -->
+      <ellipse cx="100" cy="100" rx="48" ry="48" fill="#2A5A9A" stroke="#1A3A6A" stroke-width="2"/>
+      <ellipse cx="100" cy="100" rx="36" ry="36" fill="#3A6AAA" stroke="#2A4A7A" stroke-width="1.5"/>
+      <ellipse cx="100" cy="100" rx="22" ry="22" fill="#1A3A6A"/>
+      <ellipse cx="100" cy="100" rx="12" ry="12" fill="#4A8AC0" stroke="#2A5A9A" stroke-width="1"/>
+      <!-- pipes -->
+      <rect x="2" y="90" width="38" height="20" rx="5" fill="#B0B8C0" stroke="#808890" stroke-width="1.2"/>
+      <rect x="160" y="90" width="38" height="20" rx="5" fill="#B0B8C0" stroke="#808890" stroke-width="1.2"/>
+      <!-- top terminal box -->
+      <rect x="75" y="32" width="50" height="26" rx="5" fill="#3A4A5A" stroke="#2A3A4A" stroke-width="1.2"/>
+      <rect x="80" y="37" width="16" height="10" rx="2" fill="#5A7A9A" stroke="#3A5A7A" stroke-width=".8"/>
+      <rect x="104" y="37" width="16" height="10" rx="2" fill="#5A7A9A" stroke="#3A5A7A" stroke-width=".8"/>
+      <!-- highlight -->
+      <ellipse cx="82" cy="82" rx="14" ry="10" fill="rgba(255,255,255,.18)" transform="rotate(-30,82,82)"/>
+    </g>
+
+    <!-- COLLECTOR / MANIFOLD (коллектор) -->
+    <g id="prod-collector">
+      <!-- main pipe horizontal -->
+      <rect x="12" y="86" width="176" height="28" rx="14" fill="#C8A020" stroke="#8B6800" stroke-width="1.5"/>
+      <rect x="12" y="86" width="176" height="14" rx="14" fill="#D8B030" stroke="none"/>
+      <!-- outlets -->
+      <rect x="36" y="58" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="43" cy="56" rx="9" ry="5" fill="#E8C030" stroke="#8B6800" stroke-width="1"/>
+      <rect x="62" y="58" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="69" cy="56" rx="9" ry="5" fill="#E8C030" stroke="#8B6800" stroke-width="1"/>
+      <rect x="88" y="58" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="95" cy="56" rx="9" ry="5" fill="#E8C030" stroke="#8B6800" stroke-width="1"/>
+      <rect x="114" y="58" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="121" cy="56" rx="9" ry="5" fill="#E8C030" stroke="#8B6800" stroke-width="1"/>
+      <rect x="140" y="58" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <ellipse cx="147" cy="56" rx="9" ry="5" fill="#E8C030" stroke="#8B6800" stroke-width="1"/>
+      <!-- end caps -->
+      <ellipse cx="12" cy="100" rx="14" ry="14" fill="#C8A020" stroke="#8B6800" stroke-width="1.5"/>
+      <ellipse cx="188" cy="100" rx="14" ry="14" fill="#C8A020" stroke="#8B6800" stroke-width="1.5"/>
+      <!-- flow indicators -->
+      <rect x="36" y="114" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <rect x="88" y="114" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+      <rect x="140" y="114" width="14" height="30" rx="4" fill="#B8A020" stroke="#8B6800" stroke-width="1.2"/>
+    </g>
+
+    <!-- Y-FILTER (фильтр) -->
+    <g id="prod-filter">
+      <!-- body -->
+      <rect x="20" y="88" width="50" height="24" rx="5" fill="#B0B8C0" stroke="#808890" stroke-width="1.3"/>
+      <rect x="130" y="88" width="50" height="24" rx="5" fill="#B0B8C0" stroke="#808890" stroke-width="1.3"/>
+      <!-- Y-body -->
+      <path d="M70 88 L130 88 L130 112 L70 112 Z" fill="#C8A020" stroke="#8B6800" stroke-width="1.3"/>
+      <!-- bowl -->
+      <rect x="84" y="112" width="32" height="48" rx="10" fill="#D4AA22" stroke="#8B6800" stroke-width="1.3"/>
+      <ellipse cx="100" cy="160" rx="16" ry="8" fill="#C8A020" stroke="#8B6800" stroke-width="1"/>
+      <rect x="94" y="155" width="12" height="12" rx="3" fill="#8B6800"/>
+      <!-- mesh indicator -->
+      <rect x="88" y="116" width="24" height="32" rx="5" fill="rgba(27,58,122,.1)" stroke="#8B6800" stroke-width=".8" stroke-dasharray="3,2"/>
+      <!-- thread marks -->
+      <line x1="20" y1="92" x2="20" y2="108" stroke="#808890" stroke-width=".9"/>
+      <line x1="24" y1="92" x2="24" y2="108" stroke="#808890" stroke-width=".9"/>
+      <line x1="28" y1="92" x2="28" y2="108" stroke="#808890" stroke-width=".9"/>
+      <line x1="172" y1="92" x2="172" y2="108" stroke="#808890" stroke-width=".9"/>
+      <line x1="168" y1="92" x2="168" y2="108" stroke="#808890" stroke-width=".9"/>
+    </g>
+
+    <!-- EXPANSION TANK (бак расширительный) -->
+    <g id="prod-tank">
+      <!-- body -->
+      <ellipse cx="100" cy="100" rx="72" ry="86" fill="#1B3A7A" stroke="#0F2550" stroke-width="2"/>
+      <ellipse cx="100" cy="100" rx="72" ry="86" fill="url(#tank-grad)"/>
+      <!-- divider line -->
+      <rect x="28" y="96" width="144" height="8" rx="2" fill="#2A5AAA" opacity=".6"/>
+      <!-- top label area -->
+      <rect x="56" y="42" width="88" height="28" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+      <text x="100" y="61" font-family="'Exo 2',sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,.8)" text-anchor="middle">24 л</text>
+      <!-- red top half -->
+      <ellipse cx="100" cy="56" rx="68" ry="40" fill="#C83020" opacity=".35"/>
+      <!-- pipe bottom -->
+      <rect x="88" y="186" width="24" height="20" rx="5" fill="#B0B8C0" stroke="#808890" stroke-width="1.2"/>
+      <rect x="82" y="202" width="36" height="10" rx="3" fill="#C0C8D0" stroke="#909AA2" stroke-width="1"/>
+      <!-- highlights -->
+      <ellipse cx="68" cy="68" rx="18" ry="24" fill="rgba(255,255,255,.1)" transform="rotate(-20,68,68)"/>
+    </g>
+    <defs>
+      <linearGradient id="tank-grad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#2A5AAA" stop-opacity=".4"/>
+        <stop offset="50%" stop-color="transparent"/>
+        <stop offset="100%" stop-color="#0F2550" stop-opacity=".3"/>
+      </linearGradient>
+    </defs>
+
+    <!-- PVC SEWAGE PIPE (труба канализационная) -->
+    <g id="prod-sewage-pipe">
+      <rect x="18" y="82" width="164" height="36" rx="18" fill="#7B5EA7" stroke="#5A3E80" stroke-width="1.5"/>
+      <rect x="18" y="82" width="164" height="18" rx="18" fill="#9370C0" stroke="none"/>
+      <ellipse cx="18" cy="100" rx="18" ry="18" fill="#6A50A0" stroke="#5A3E80" stroke-width="1.5"/>
+      <ellipse cx="18" cy="100" rx="12" ry="12" fill="#8060B8"/>
+      <ellipse cx="18" cy="100" rx="6" ry="6" fill="#3A1A60"/>
+      <!-- socket end -->
+      <rect x="164" y="78" width="22" height="44" rx="8" fill="#8060B8" stroke="#5A3E80" stroke-width="1.5"/>
+      <rect x="164" y="78" width="22" height="22" rx="8" fill="#9070C8" stroke="none"/>
+      <text x="60" y="104" font-family="'Exo 2',sans-serif" font-size="11" font-weight="600" fill="white" opacity=".85">PVC DN 110</text>
+      <rect x="18" y="83" width="164" height="6" rx="3" fill="rgba(255,255,255,.2)"/>
+    </g>
+
+    <!-- INLINE FAN (вентилятор канальный) -->
+    <g id="prod-fan">
+      <ellipse cx="100" cy="100" rx="72" ry="72" fill="#3A4A5A" stroke="#2A3A4A" stroke-width="2"/>
+      <ellipse cx="100" cy="100" rx="60" ry="60" fill="#2A3A4A" stroke="#1A2A3A" stroke-width="1.5"/>
+      <!-- fan blades -->
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(0,100,100)"/>
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(60,100,100)"/>
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(120,100,100)"/>
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(180,100,100)"/>
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(240,100,100)"/>
+      <ellipse cx="100" cy="60" rx="14" ry="26" fill="#5A7A9A" stroke="#3A5A7A" stroke-width="1" transform="rotate(300,100,100)"/>
+      <circle cx="100" cy="100" r="18" fill="#1A2A3A" stroke="#0A1A2A" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="8" fill="#4A6A8A" stroke="#2A4A6A" stroke-width="1"/>
+      <!-- body flanges -->
+      <rect x="28" y="88" width="20" height="24" rx="4" fill="#4A5A6A" stroke="#3A4A5A" stroke-width="1"/>
+      <rect x="152" y="88" width="20" height="24" rx="4" fill="#4A5A6A" stroke="#3A4A5A" stroke-width="1"/>
+    </g>
+
+    <!-- PIPE CUTTER (труборез) -->
+    <g id="prod-pipecutter">
+      <!-- body frame -->
+      <rect x="30" y="50" width="100" height="100" rx="6" fill="#E8A020" stroke="#B07010" stroke-width="1.5"/>
+      <rect x="36" y="56" width="88" height="44" rx="4" fill="#F0B030" stroke="#B07010" stroke-width="1"/>
+      <!-- cutting wheel -->
+      <circle cx="80" cy="78" r="24" fill="#C0C8D0" stroke="#808890" stroke-width="1.5"/>
+      <circle cx="80" cy="78" r="18" fill="#D0D8E0" stroke="#909AA2" stroke-width="1"/>
+      <circle cx="80" cy="78" r="5" fill="#606870"/>
+      <!-- roller -->
+      <circle cx="130" cy="78" r="12" fill="#A0A8B0" stroke="#707880" stroke-width="1.2"/>
+      <circle cx="130" cy="78" r="5" fill="#606870"/>
+      <!-- pipe being cut -->
+      <rect x="36" y="68" width="90" height="20" rx="10" fill="#4A9FD5" opacity=".5"/>
+      <!-- handle/screw -->
+      <rect x="60" y="138" width="40" height="18" rx="4" fill="#D4AA22" stroke="#8B6800" stroke-width="1.2"/>
+      <circle cx="80" cy="147" r="7" fill="#C09000" stroke="#8B6800" stroke-width="1"/>
+      <!-- label -->
+      <text x="50" y="112" font-family="'Exo 2',sans-serif" font-size="9" font-weight="600" fill="#7A5000">16-40 мм</text>
+    </g>
+
+    <!-- FUM TAPE (лента ФУМ) -->
+    <g id="prod-fumtape">
+      <!-- spool -->
+      <ellipse cx="100" cy="100" rx="70" ry="70" fill="#F0F0F0" stroke="#D0D0D0" stroke-width="2"/>
+      <ellipse cx="100" cy="100" rx="56" ry="56" fill="#E8E8E8" stroke="#C8C8C8" stroke-width="1.5"/>
+      <!-- tape layers visible -->
+      <ellipse cx="100" cy="100" rx="52" ry="52" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+      <ellipse cx="100" cy="100" rx="46" ry="46" fill="none" stroke="#F8F8F8" stroke-width="4"/>
+      <ellipse cx="100" cy="100" rx="40" ry="40" fill="none" stroke="#F0F0F0" stroke-width="4"/>
+      <ellipse cx="100" cy="100" rx="34" ry="34" fill="none" stroke="#E8E8E8" stroke-width="4"/>
+      <!-- core -->
+      <ellipse cx="100" cy="100" rx="26" ry="26" fill="#C0C8D0" stroke="#A0A8B0" stroke-width="1.5"/>
+      <ellipse cx="100" cy="100" rx="16" ry="16" fill="#D0D8E0" stroke="#A0A8B0" stroke-width="1"/>
+      <!-- label on side -->
+      <text x="100" y="104" font-family="'Exo 2',sans-serif" font-size="9" font-weight="700" fill="#404850" text-anchor="middle">PTFE</text>
+      <!-- tape end -->
+      <rect x="152" y="60" width="28" height="8" rx="2" fill="#F8F8F8" stroke="#D0D0D0" stroke-width="1" transform="rotate(30,152,60)"/>
+    </g>
+
+    <!-- CLAMP (хомут для труб) -->
+    <g id="prod-clamp">
+      <!-- pipe section -->
+      <rect x="60" y="76" width="80" height="48" rx="24" fill="#4A9FD5" stroke="#2A7AB5" stroke-width="1.5"/>
+      <!-- clamp bands -->
+      <path d="M 60 76 Q 100 56 140 76 L 140 86 Q 100 66 60 86 Z" fill="#C0C8D0" stroke="#909AA2" stroke-width="1.2"/>
+      <path d="M 60 114 Q 100 134 140 114 L 140 124 Q 100 144 60 124 Z" fill="#C0C8D0" stroke="#909AA2" stroke-width="1.2"/>
+      <!-- bolt left -->
+      <rect x="48" y="76" width="12" height="48" rx="3" fill="#B0B8C0" stroke="#909AA2" stroke-width="1"/>
+      <rect x="44" y="76" width="20" height="10" rx="3" fill="#D0D8E0" stroke="#A0A8B0" stroke-width="1"/>
+      <rect x="44" y="114" width="20" height="10" rx="3" fill="#D0D8E0" stroke="#A0A8B0" stroke-width="1"/>
+      <!-- bolt right -->
+      <rect x="140" y="76" width="12" height="48" rx="3" fill="#B0B8C0" stroke="#909AA2" stroke-width="1"/>
+      <rect x="136" y="76" width="20" height="10" rx="3" fill="#D0D8E0" stroke="#A0A8B0" stroke-width="1"/>
+      <rect x="136" y="114" width="20" height="10" rx="3" fill="#D0D8E0" stroke="#A0A8B0" stroke-width="1"/>
+      <!-- pipe highlight -->
+      <rect x="60" y="77" width="80" height="8" rx="4" fill="rgba(255,255,255,.3)"/>
+    </g>
+
+    <!-- INSULATION (теплоизоляция трубы) -->
+    <g id="prod-insulation">
+      <!-- outer foam -->
+      <rect x="14" y="74" width="172" height="52" rx="26" fill="#F5A623" stroke="#D88A10" stroke-width="1.5"/>
+      <rect x="14" y="74" width="172" height="26" rx="26" fill="#FAB830" stroke="none"/>
+      <!-- pipe inside -->
+      <rect x="14" y="88" width="172" height="24" rx="12" fill="#4A9FD5" stroke="#2A7AB5" stroke-width="1"/>
+      <!-- end left -->
+      <ellipse cx="14" cy="100" rx="26" ry="26" fill="#E09020" stroke="#C07010" stroke-width="1.5"/>
+      <ellipse cx="14" cy="100" rx="12" ry="12" fill="#4A9FD5" stroke="#2A7AB5" stroke-width="1"/>
+      <ellipse cx="14" cy="100" rx="5" ry="5" fill="#1A5A90"/>
+      <!-- slit line -->
+      <line x1="14" y1="74" x2="186" y2="74" stroke="#C07010" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <!-- text label -->
+      <text x="90" y="105" font-family="'Exo 2',sans-serif" font-size="9" font-weight="600" fill="white" opacity=".85">DN 22 / 9мм</text>
+    </g>
+
+  </defs>
+</svg>
+
+<!-- ══════════════════════════════════════
+   PAGE: HOME
+══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-track" id="heroTrack">
+      <div class="hero-slide hs1">
+        <div class="container"><div class="hc">
+          <div class="htag">Надёжный поставщик</div>
+          <h1>Инженерные системы и оборудование для вашего объекта</h1>
+          <p>Полный ассортимент трубопроводного оборудования, запорной арматуры и инженерных систем от ведущих производителей.</p>
+          <div class="hbtns">
+            <button class="btn bw" onclick="go('catalog')">Смотреть каталог</button>
+            <button class="btn bg" onclick="go('contacts')">Связаться с нами</button>
+          </div>
+        </div></div>
+        <div class="hdecor"><svg viewBox="0 0 400 400" fill="none"><circle cx="200" cy="200" r="180" stroke="white" stroke-width="2"/><circle cx="200" cy="200" r="135" stroke="white" stroke-width="1.5" stroke-dasharray="8 6"/><circle cx="200" cy="200" r="88" stroke="white" stroke-width="1" stroke-dasharray="4 8"/><circle cx="200" cy="200" r="44" fill="white" opacity=".06"/></svg></div>
+      </div>
+      <div class="hero-slide hs2">
+        <div class="container"><div class="hc">
+          <div class="htag">Широкий каталог</div>
+          <h1>Трубопроводные системы для любых задач</h1>
+          <p>Металлополимерные, полипропиленовые, стальные трубы и фитинги. Всё для профессионального монтажа.</p>
+          <div class="hbtns">
+            <button class="btn bw" onclick="go('catalog','pipes')">Трубы и фитинги</button>
+            <button class="btn bg" onclick="go('about')">О компании</button>
+          </div>
+        </div></div>
+      </div>
+      <div class="hero-slide hs3">
+        <div class="container"><div class="hc">
+          <div class="htag">Профессиональный подход</div>
+          <h1>Отопление, водоснабжение и вентиляция под ключ</h1>
+          <p>Комплексные решения для жилых, коммерческих и промышленных объектов. Консультация специалистов.</p>
+          <div class="hbtns">
+            <button class="btn bw" onclick="go('catalog','heating')">Системы отопления</button>
+            <button class="btn bg" onclick="go('contacts')">Консультация</button>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="harr">
+      <button class="hprev" onclick="hGo(-1)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="hnext" onclick="hGo(1)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="hdots" id="hDots">
+      <div class="hdot active" onclick="hSet(0)"></div>
+      <div class="hdot" onclick="hSet(1)"></div>
+      <div class="hdot" onclick="hSet(2)"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <div class="fstrip"><div class="container">
+    <div class="fi"><div class="fi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="fi-tx"><strong>Гарантия качества</strong><span>Сертифицированная продукция</span></div></div>
+    <div class="fi"><div class="fi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="fi-tx"><strong>Быстрая доставка</strong><span>По всему региону</span></div></div>
+    <div class="fi"><div class="fi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="fi-tx"><strong>Экспертная поддержка</strong><span>Консультации специалистов</span></div></div>
+    <div class="fi"><div class="fi-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="fi-tx"><strong>Выгодные цены</strong><span>Прямые поставки</span></div></div>
+  </div></div>
+
+  <!-- CATALOG -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head"><h2>Каталог продукции</h2><p>Широкий ассортимент инженерного оборудования и материалов для профессионального монтажа</p><div class="ln"></div></div>
+      <div class="cat-grid">
+        <div class="cc" onclick="go('catalog','pipes')">
+          <div class="cc-img"><svg viewBox="0 0 200 140"><use href="#prod-pipe-mp" transform="scale(.73) translate(0,15)"/></svg></div>
+          <div class="cc-body"><h3>Трубопроводные системы</h3><p>Металлополимерные, полипропиленовые трубы и фитинги</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','valves')">
+          <div class="cc-img"><svg viewBox="0 0 200 140"><use href="#prod-ballvalve" transform="scale(.73) translate(0,15)"/></svg></div>
+          <div class="cc-body"><h3>Запорная арматура</h3><p>Шаровые краны, задвижки, клапаны и вентили</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','heating')">
+          <div class="cc-img"><svg viewBox="0 0 200 200"><use href="#prod-radiator" transform="scale(.68) translate(0,0)"/></svg></div>
+          <div class="cc-body"><h3>Отопительное оборудование</h3><p>Радиаторы, насосы, коллекторы и комплектующие</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','water')">
+          <div class="cc-img"><svg viewBox="0 0 200 200"><use href="#prod-tank" transform="scale(.7) translate(15,5)"/></svg></div>
+          <div class="cc-body"><h3>Водоснабжение</h3><p>Насосное оборудование, фильтры, баки</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','sewage')">
+          <div class="cc-img"><svg viewBox="0 0 200 140"><use href="#prod-sewage-pipe" transform="scale(.73) translate(0,15)"/></svg></div>
+          <div class="cc-body"><h3>Канализация</h3><p>Трубы ПВХ, фитинги, сифоны и трапы</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','ventilation')">
+          <div class="cc-img"><svg viewBox="0 0 200 200"><use href="#prod-fan" transform="scale(.7) translate(15,5)"/></svg></div>
+          <div class="cc-body"><h3>Вентиляция</h3><p>Воздуховоды, вентиляторы, решётки и диффузоры</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','tools')">
+          <div class="cc-img"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.7) translate(15,5)"/></svg></div>
+          <div class="cc-body"><h3>Инструмент</h3><p>Профессиональный инструмент для монтажа</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+        <div class="cc" onclick="go('catalog','supplies')">
+          <div class="cc-img"><svg viewBox="0 0 200 200"><use href="#prod-fumtape" transform="scale(.7) translate(15,5)"/></svg></div>
+          <div class="cc-body"><h3>Расходные материалы</h3><p>Уплотнения, крепёж, изоляция и расходники</p><span class="cc-lnk">Перейти в раздел →</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:34px"><button class="btn bp" onclick="go('catalog')">Весь каталог продукции</button></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band"><div class="container">
+    <div><div class="sn"><span data-count="15">0</span><em>+</em></div><div class="sl">Лет на рынке</div></div>
+    <div><div class="sn"><span data-count="5000">0</span><em>+</em></div><div class="sl">Позиций в каталоге</div></div>
+    <div><div class="sn"><span data-count="1200">0</span><em>+</em></div><div class="sl">Довольных клиентов</div></div>
+    <div><div class="sn"><span data-count="50">0</span><em>+</em></div><div class="sl">Партнёров-поставщиков</div></div>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container">
+      <div class="about-g">
+        <div class="about-img">
+          <div class="about-ph">🏢</div>
+          <div class="about-badge"><strong>15+</strong><span>лет опыта</span></div>
+        </div>
+        <div class="about-tx">
+          <h2>О компании BUD PROGRESS</h2>
+          <p>BUD PROGRESS — надёжный поставщик инженерного оборудования и материалов для систем отопления, водоснабжения, канализации и вентиляции.</p>
+          <p>Мы работаем с ведущими производителями, обеспечивая клиентам доступ к сертифицированной продукции высокого качества по конкурентным ценам.</p>
+          <ul class="chk">
+            <li class="chk-i"><div class="chk-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Широкий ассортимент сертифицированной продукции</span></li>
+            <li class="chk-i"><div class="chk-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Профессиональная техническая консультация</span></li>
+            <li class="chk-i"><div class="chk-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Оперативная доставка по всему региону</span></li>
+            <li class="chk-i"><div class="chk-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><span>Индивидуальный подход к каждому клиенту</span></li>
+          </ul>
+          <button class="btn bp" onclick="go('about')">Подробнее о компании</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="sec-head"><h2>Новости и обновления</h2><p>Актуальная информация о новинках продукции и событиях компании</p><div class="ln"></div></div>
+      <div class="news-g">
+        <div class="nc"><div class="ni2">📢</div><div class="nb"><div class="nd">— Дата новости —</div><h3>Заголовок новости будет здесь</h3><p>Краткое описание. Здесь будет текст о важном событии или обновлении ассортимента.</p><span class="nlink">Читать далее →</span></div></div>
+        <div class="nc"><div class="ni2">🆕</div><div class="nb"><div class="nd">— Дата новости —</div><h3>Новинки каталога — пополнение ассортимента</h3><p>Описание новых поступлений. Информация о новых позициях и расширении каталога.</p><span class="nlink">Читать далее →</span></div></div>
+        <div class="nc"><div class="ni2">🤝</div><div class="nb"><div class="nd">— Дата новости —</div><h3>Партнёрство с новым поставщиком</h3><p>Информация о новом партнёрстве и расширении возможностей для клиентов.</p><span class="nlink">Читать далее →</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta"><div class="container">
+    <h2>Нужна консультация специалиста?</h2>
+    <p>Наши инженеры помогут подобрать оборудование и комплектующие для вашего объекта</p>
+    <button class="btn bw" onclick="go('contacts')">Связаться с нами</button>
+  </div></section>
+
+</div>
+
+<!-- ══════════════════════════════════════
+   PAGE: CATALOG
+══════════════════════════════════════ -->
+<div class="page" id="page-catalog">
+
+  <div class="ph"><div class="container">
+    <div class="bc"><span style="cursor:pointer" onclick="go('home')">Главная</span><span class="bc-sep">›</span><span class="cur">Каталог</span></div>
+    <h1>Каталог продукции</h1>
+    <p>Полный ассортимент инженерного оборудования и материалов для профессионального монтажа</p>
+  </div></div>
+
+  <div class="container">
+    <div class="cat-lay">
+
+      <aside>
+        <div class="sw">
+          <div class="sw-t">Категории</div>
+          <div class="sw-b">
+            <span id="sb-pipes" onclick="scr('pipes')">Трубопроводные системы <span class="sw-cnt">—</span></span>
+            <span id="sb-valves" onclick="scr('valves')">Запорная арматура <span class="sw-cnt">—</span></span>
+            <span id="sb-heating" onclick="scr('heating')">Отопительное оборудование <span class="sw-cnt">—</span></span>
+            <span id="sb-water" onclick="scr('water')">Водоснабжение <span class="sw-cnt">—</span></span>
+            <span id="sb-sewage" onclick="scr('sewage')">Канализация <span class="sw-cnt">—</span></span>
+            <span id="sb-ventilation" onclick="scr('ventilation')">Вентиляция <span class="sw-cnt">—</span></span>
+            <span id="sb-tools" onclick="scr('tools')">Инструмент <span class="sw-cnt">—</span></span>
+            <span id="sb-supplies" onclick="scr('supplies')">Расходные материалы <span class="sw-cnt">—</span></span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-t">Нужна помощь?</div>
+          <div style="padding:16px">
+            <p style="font-size:.81rem;color:var(--muted);margin-bottom:11px;line-height:1.6">Наши специалисты помогут подобрать необходимое оборудование</p>
+            <button class="btn bp" style="width:100%;justify-content:center;font-size:.82rem;padding:9px 14px" onclick="go('contacts')">Задать вопрос</button>
+            <a href="tel:+70000000000" style="display:block;text-align:center;margin-top:10px;font-size:.83rem;color:var(--navy);font-weight:600">+7 (000) 000-00-00</a>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+
+        <!-- PIPES -->
+        <div class="cs" id="cat-pipes">
+          <div class="cs-title">🔧 Трубопроводные системы</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 130"><use href="#prod-pipe-mp" transform="scale(.73) translate(0,12)"/></svg>
+                <div class="pbadge"><span class="badge badge-new">Новинка</span></div>
+              </div>
+              <div class="pb">
+                <div class="pc">Трубы металлополимерные</div>
+                <div class="pn">Труба металлополимерная PEX-AL-PEX DN 16×2 мм</div>
+                <div class="pcode">Арт.: BP-PIPE-1620</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-pipe-pp" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы полипропиленовые</div>
+                <div class="pn">Труба полипропиленовая PP-R PN20 DN 20 мм</div>
+                <div class="pcode">Арт.: BP-PP-2020</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-pipe-pex" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы PE-Xa</div>
+                <div class="pn">Труба из сшитого полиэтилена PE-Xa/EVOH 16×2 мм</div>
+                <div class="pcode">Арт.: BP-PEX-1620</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фитинги компрессионные</div>
+                <div class="pn">Фитинг компрессионный тройник DN 20 мм</div>
+                <div class="pcode">Арт.: BP-FIT-T20</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фитинги компрессионные</div>
+                <div class="pn">Фитинг компрессионный муфта DN 16 мм</div>
+                <div class="pcode">Арт.: BP-FIT-M16</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-pipe-mp" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы металлополимерные</div>
+                <div class="pn">Труба металлополимерная PEX-AL-PEX DN 20×2 мм</div>
+                <div class="pcode">Арт.: BP-PIPE-2020</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- VALVES -->
+        <div class="cs" id="cat-valves">
+          <div class="cs-title">🔩 Запорная арматура</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 200"><use href="#prod-ballvalve" transform="scale(.73) translate(0,25)"/></svg>
+                <div class="pbadge"><span class="badge badge-new">Новинка</span></div>
+              </div>
+              <div class="pb">
+                <div class="pc">Шаровые краны</div>
+                <div class="pn">Кран шаровой BASE DN 15 (1/2") PN 40 ВВ</div>
+                <div class="pcode">Арт.: BP-VLV-BASE-15</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-valve-lever" transform="scale(.73) translate(0,25)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Шаровые краны</div>
+                <div class="pn">Кран шаровой с рычагом DN 20 (3/4") PN 40 ВВ</div>
+                <div class="pcode">Арт.: BP-VLV-LV-20</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-ballvalve" transform="scale(.73) translate(0,25)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Шаровые краны</div>
+                <div class="pn">Кран шаровой BASE DN 25 (1") PN 40 ВВ</div>
+                <div class="pcode">Арт.: BP-VLV-BASE-25</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-filter" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фильтры</div>
+                <div class="pn">Фильтр сетчатый Y-образный DN 15 (1/2") PN 16</div>
+                <div class="pcode">Арт.: BP-FLT-Y15</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-filter" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фильтры</div>
+                <div class="pn">Фильтр сетчатый Y-образный DN 20 (3/4") PN 16</div>
+                <div class="pcode">Арт.: BP-FLT-Y20</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-valve-lever" transform="scale(.73) translate(0,25)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Шаровые краны</div>
+                <div class="pn">Кран шаровой с рычагом DN 32 (11/4") PN 40 ВВ</div>
+                <div class="pcode">Арт.: BP-VLV-LV-32</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- HEATING -->
+        <div class="cs" id="cat-heating">
+          <div class="cs-title">🔥 Отопительное оборудование</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-radiator" transform="scale(.7) translate(0,2)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Радиаторы алюминиевые</div>
+                <div class="pn">Радиатор алюминиевый секционный 500/80 — 6 секций</div>
+                <div class="pcode">Арт.: BP-RAD-A500-6</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-radiator" transform="scale(.7) translate(0,2)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Радиаторы алюминиевые</div>
+                <div class="pn">Радиатор алюминиевый секционный 500/80 — 10 секций</div>
+                <div class="pcode">Арт.: BP-RAD-A500-10</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pump" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Циркуляционные насосы</div>
+                <div class="pn">Насос циркуляционный BP-25/40 DN 25 180 мм</div>
+                <div class="pcode">Арт.: BP-PMP-2540</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-collector" transform="scale(.73) translate(0,40)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Коллекторы</div>
+                <div class="pn">Коллектор латунный 5 выходов 1"×3/4" с кранами</div>
+                <div class="pcode">Арт.: BP-CLT-5-34</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-collector" transform="scale(.73) translate(0,40)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Коллекторы</div>
+                <div class="pn">Коллектор латунный 3 выхода 1"×3/4" с кранами</div>
+                <div class="pcode">Арт.: BP-CLT-3-34</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pump" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Циркуляционные насосы</div>
+                <div class="pn">Насос циркуляционный BP-25/60 DN 25 180 мм</div>
+                <div class="pcode">Арт.: BP-PMP-2560</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- WATER -->
+        <div class="cs" id="cat-water">
+          <div class="cs-title">💧 Водоснабжение</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-tank" transform="scale(.7) translate(15,5)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Расширительные баки</div>
+                <div class="pn">Бак расширительный мембранный 24 л, давление 1,5 бар</div>
+                <div class="pcode">Арт.: BP-TNK-24</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-tank" transform="scale(.7) translate(15,5)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Расширительные баки</div>
+                <div class="pn">Бак расширительный мембранный 12 л, давление 1,5 бар</div>
+                <div class="pcode">Арт.: BP-TNK-12</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-filter" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фильтры механической очистки</div>
+                <div class="pn">Фильтр сетчатый промывной DN 20 (3/4") PN 16</div>
+                <div class="pcode">Арт.: BP-FLT-W20</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pump" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Насосное оборудование</div>
+                <div class="pn">Насос повысительный BP-20/40 DN 20 130 мм</div>
+                <div class="pcode">Арт.: BP-WPM-2040</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-tank" transform="scale(.7) translate(15,5)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Расширительные баки</div>
+                <div class="pn">Бак расширительный мембранный 50 л, давление 1,5 бар</div>
+                <div class="pcode">Арт.: BP-TNK-50</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-filter" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фильтры механической очистки</div>
+                <div class="pn">Фильтр сетчатый промывной DN 25 (1") PN 16</div>
+                <div class="pcode">Арт.: BP-FLT-W25</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SEWAGE -->
+        <div class="cs" id="cat-sewage">
+          <div class="cs-title">🏗️ Канализация</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-sewage-pipe" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы канализационные ПВХ</div>
+                <div class="pn">Труба канализационная ПВХ DN 50 L=2000 мм</div>
+                <div class="pcode">Арт.: BP-SWP-50-2000</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-sewage-pipe" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы канализационные ПВХ</div>
+                <div class="pn">Труба канализационная ПВХ DN 110 L=2000 мм</div>
+                <div class="pcode">Арт.: BP-SWP-110-2000</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фитинги канализационные</div>
+                <div class="pn">Отвод канализационный ПВХ DN 50 угол 87°</div>
+                <div class="pcode">Арт.: BP-SWF-50-87</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фитинги канализационные</div>
+                <div class="pn">Тройник канализационный ПВХ DN 110×50 90°</div>
+                <div class="pcode">Арт.: BP-SWT-110-90</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-sewage-pipe" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Трубы канализационные ПВХ</div>
+                <div class="pn">Труба канализационная ПВХ DN 110 L=500 мм</div>
+                <div class="pcode">Арт.: BP-SWP-110-500</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-filter" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Сифоны и трапы</div>
+                <div class="pn">Трап сливной напольный DN 50, решётка 150×150 мм</div>
+                <div class="pcode">Арт.: BP-DRN-50-150</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- VENTILATION -->
+        <div class="cs" id="cat-ventilation">
+          <div class="cs-title">💨 Вентиляция</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-fan" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Вентиляторы канальные</div>
+                <div class="pn">Вентилятор канальный центробежный BP-FAN-125 DN 125</div>
+                <div class="pcode">Арт.: BP-FAN-C125</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-fan" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Вентиляторы канальные</div>
+                <div class="pn">Вентилятор канальный осевой BP-FAN-100 DN 100</div>
+                <div class="pcode">Арт.: BP-FAN-A100</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-sewage-pipe" transform="scale(.73) translate(0,12)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Воздуховоды</div>
+                <div class="pn">Воздуховод круглый оцинкованный DN 125 L=1000 мм</div>
+                <div class="pcode">Арт.: BP-DCT-125-1000</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Фасонные детали</div>
+                <div class="pn">Отвод воздуховода оцинкованный DN 125 угол 90°</div>
+                <div class="pcode">Арт.: BP-DCF-90-125</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-fan" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Вентиляторы канальные</div>
+                <div class="pn">Вентилятор канальный центробежный BP-FAN-160 DN 160</div>
+                <div class="pcode">Арт.: BP-FAN-C160</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-fitting" transform="scale(.73) translate(0,10)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Решётки и диффузоры</div>
+                <div class="pn">Решётка вентиляционная регулируемая 150×150 мм</div>
+                <div class="pcode">Арт.: BP-GRL-150</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="cs" id="cat-tools">
+          <div class="cs-title">🛠️ Инструмент</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Инструмент для труб</div>
+                <div class="pn">Труборез для металлополимерных труб DN 16–40 мм</div>
+                <div class="pcode">Арт.: BP-TLC-1640</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Инструмент для труб</div>
+                <div class="pn">Труборез для пластиковых труб DN 16–63 мм</div>
+                <div class="pcode">Арт.: BP-TLC-1663</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Пресс-инструмент</div>
+                <div class="pn">Пресс-клещи ручные для пресс-фитингов DN 16–32</div>
+                <div class="pcode">Арт.: BP-TLP-1632</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Паяльник для PP-R</div>
+                <div class="pn">Паяльник для полипропиленовых труб 800 Вт DN 16–50</div>
+                <div class="pcode">Арт.: BP-TLW-800</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Расширитель</div>
+                <div class="pn">Расширитель для труб PE-Xa DN 16–32 с насадками</div>
+                <div class="pcode">Арт.: BP-TLE-1632</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-pipecutter" transform="scale(.72) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Калибратор-фаскосниматель</div>
+                <div class="pn">Калибратор 3-в-1 для металлополимерных труб DN 16–32</div>
+                <div class="pcode">Арт.: BP-TLK-1632</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUPPLIES -->
+        <div class="cs" id="cat-supplies">
+          <div class="cs-title">📦 Расходные материалы</div>
+          <div class="pg">
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-fumtape" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Уплотнения</div>
+                <div class="pn">Лента уплотнительная ФУМ PTFE 12 мм × 12 м</div>
+                <div class="pcode">Арт.: BP-FUM-1212</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-fumtape" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Уплотнения</div>
+                <div class="pn">Лента уплотнительная ФУМ PTFE 19 мм × 15 м</div>
+                <div class="pcode">Арт.: BP-FUM-1915</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-clamp" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Крепёж</div>
+                <div class="pn">Хомут для труб DN 20 усиленный пластиковый</div>
+                <div class="pcode">Арт.: BP-CLM-P20</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 200"><use href="#prod-clamp" transform="scale(.7) translate(15,8)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Крепёж</div>
+                <div class="pn">Хомут для труб DN 25 усиленный металлический</div>
+                <div class="pcode">Арт.: BP-CLM-M25</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-insulation" transform="scale(.73) translate(0,30)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Теплоизоляция</div>
+                <div class="pn">Теплоизоляция труб вспененный PE DN 22×9 мм L=2 м</div>
+                <div class="pcode">Арт.: BP-INS-22-9</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pimg"><svg viewBox="0 0 200 130"><use href="#prod-insulation" transform="scale(.73) translate(0,30)"/></svg></div>
+              <div class="pb">
+                <div class="pc">Теплоизоляция</div>
+                <div class="pn">Теплоизоляция труб вспененный PE DN 28×13 мм L=2 м</div>
+                <div class="pcode">Арт.: BP-INS-28-13</div>
+                <button class="pm">Подробнее →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <section class="cta"><div class="container">
+    <h2>Не нашли нужный товар?</h2>
+    <p>Свяжитесь с нами — поможем подобрать оборудование или сделать индивидуальный запрос</p>
+    <button class="btn bw" onclick="go('contacts')">Связаться с нами</button>
+  </div></section>
+
+</div>
+
+<!-- ══════════════════════════════════════
+   PAGE: ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="ph"><div class="container">
+    <div class="bc"><span style="cursor:pointer" onclick="go('home')">Главная</span><span class="bc-sep">›</span><span class="cur">О компании</span></div>
+    <h1>О компании</h1><p>BUD PROGRESS — ваш надёжный партнёр в сфере инженерных систем и оборудования</p>
+  </div></div>
+
+  <section class="section"><div class="container">
+    <div class="ai">
+      <div>
+        <h2 style="color:var(--navy);margin-bottom:16px">Кто мы такие</h2>
+        <p>BUD PROGRESS — [описание компании будет добавлено]. Здесь разместите основной текст о вашей компании: когда основана, чем занимается, каковы ключевые направления деятельности.</p>
+        <p>Расскажите о вашей специализации: поставки инженерного оборудования, трубопроводных систем, материалов для отопления, водоснабжения, канализации и вентиляции.</p>
+        <p>Здесь можно упомянуть ключевые преимущества: надёжные партнёры-поставщики, широкий ассортимент, быстрые поставки, профессиональные консультации.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <button class="btn bp" onclick="go('catalog')">Смотреть каталог</button>
+          <button class="btn bo" onclick="go('contacts')">Связаться с нами</button>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--bg);border-radius:var(--rl);height:240px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;opacity:.25;margin-bottom:14px">🏢</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:var(--navy);color:#fff;border-radius:var(--rl);padding:16px;text-align:center"><div style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800" data-count="15">0</div><div style="font-size:.76rem;opacity:.72;margin-top:3px">лет на рынке</div></div>
+          <div style="background:var(--blue);color:#fff;border-radius:var(--rl);padding:16px;text-align:center"><div style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800" data-count="5000">0</div><div style="font-size:.76rem;opacity:.72;margin-top:3px">позиций</div></div>
+          <div style="background:var(--blue);color:#fff;border-radius:var(--rl);padding:16px;text-align:center"><div style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800" data-count="1200">0</div><div style="font-size:.76rem;opacity:.72;margin-top:3px">клиентов</div></div>
+          <div style="background:var(--navy);color:#fff;border-radius:var(--rl);padding:16px;text-align:center"><div style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800" data-count="50">0</div><div style="font-size:.76rem;opacity:.72;margin-top:3px">партнёров</div></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="section section--gray"><div class="container">
+    <div class="sec-head"><h2>Наши ценности</h2><p>Принципы, которые определяют нашу работу и взаимодействие с клиентами</p><div class="ln"></div></div>
+    <div class="vg">
+      <div class="vc"><div class="vic">⭐</div><h3>Качество</h3><p>Работаем только с сертифицированной продукцией ведущих производителей.</p></div>
+      <div class="vc"><div class="vic">🤝</div><h3>Партнёрство</h3><p>Строим долгосрочные отношения, основанные на взаимном доверии и честности.</p></div>
+      <div class="vc"><div class="vic">💡</div><h3>Экспертиза</h3><p>Глубокие знания в области инженерных систем для оптимальных решений.</p></div>
+      <div class="vc"><div class="vic">⚡</div><h3>Оперативность</h3><p>Быстрая обработка заявок, поставки и своевременная обратная связь.</p></div>
+      <div class="vc"><div class="vic">🔒</div><h3>Надёжность</h3><p>Выполняем обязательства в срок. Репутация — наш главный актив.</p></div>
+      <div class="vc"><div class="vic">📈</div><h3>Развитие</h3><p>Постоянно расширяем ассортимент и совершенствуем сервис.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="sec-head"><h2>История компании</h2><p>Путь от небольшой компании до признанного лидера рынка</p><div class="ln"></div></div>
+    <div class="timeline">
+      <div class="ti"><div class="ty">[Год основания]</div><h4>Основание компании</h4><p>Описание того, как и когда была основана компания BUD PROGRESS. Первые шаги.</p></div>
+      <div class="ti"><div class="ty">[Год]</div><h4>Расширение ассортимента</h4><p>Выход на новые рынки, расширение каталога, заключение партнёрских соглашений.</p></div>
+      <div class="ti"><div class="ty">[Год]</div><h4>Новые направления</h4><p>Добавление новых категорий продукции, укрепление позиций на рынке.</p></div>
+      <div class="ti"><div class="ty">Сегодня</div><h4>Признанный лидер рынка</h4><p>BUD PROGRESS — надёжный поставщик с широкой клиентской базой по всему региону.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section section--gray"><div class="container">
+    <div class="sec-head"><h2>Наша команда</h2><p>Профессионалы, которые обеспечивают высокий уровень сервиса</p><div class="ln"></div></div>
+    <div class="tg">
+      <div class="tc"><div class="tcp">👤</div><div class="tcb"><h4>[Имя Фамилия]</h4><span>Генеральный директор</span></div></div>
+      <div class="tc"><div class="tcp">👤</div><div class="tcb"><h4>[Имя Фамилия]</h4><span>Коммерческий директор</span></div></div>
+      <div class="tc"><div class="tcp">👤</div><div class="tcb"><h4>[Имя Фамилия]</h4><span>Главный инженер</span></div></div>
+      <div class="tc"><div class="tcp">👤</div><div class="tcb"><h4>[Имя Фамилия]</h4><span>Руководитель продаж</span></div></div>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="sec-head"><h2>Наши поставщики и партнёры</h2><p>Мы работаем с ведущими производителями инженерного оборудования</p><div class="ln"></div></div>
+    <div class="pg2">
+      <div class="par">Поставщик 1</div><div class="par">Поставщик 2</div><div class="par">Поставщик 3</div>
+      <div class="par">Поставщик 4</div><div class="par">Поставщик 5</div><div class="par">Поставщик 6</div>
+      <div class="par">Поставщик 7</div><div class="par">Поставщик 8</div><div class="par">Поставщик 9</div>
+      <div class="par">Поставщик 10</div>
+    </div>
+  </div></section>
+
+  <section class="cta"><div class="container">
+    <h2>Станьте нашим партнёром</h2>
+    <p>Свяжитесь с нами, чтобы узнать об условиях сотрудничества и специальных предложениях</p>
+    <button class="btn bw" onclick="go('contacts')">Обсудить сотрудничество</button>
+  </div></section>
+</div>
+
+<!-- ══════════════════════════════════════
+   PAGE: CONTACTS
+══════════════════════════════════════ -->
+<div class="page" id="page-contacts">
+  <div class="ph"><div class="container">
+    <div class="bc"><span style="cursor:pointer" onclick="go('home')">Главная</span><span class="bc-sep">›</span><span class="cur">Контакты</span></div>
+    <h1>Контакты</h1><p>Свяжитесь с нами любым удобным способом</p>
+  </div></div>
+
+  <div class="container"><div class="cl">
+    <div>
+      <div class="cb">
+        <h3>Контактная информация</h3>
+        <div class="cr"><div class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="ct"><strong>г. [Город], ул. [Улица], д. [Номер], офис [Номер]</strong><span>Адрес офиса</span></div></div>
+        <div class="cr"><div class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div><div class="ct"><strong><a href="tel:+70000000000" style="color:var(--navy)">+7 (000) 000-00-00</a></strong><span>Основной номер</span></div></div>
+        <div class="cr"><div class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="ct"><strong><a href="mailto:info@budprogress.kz" style="color:var(--navy)">info@budprogress.kz</a></strong><span>Электронная почта</span></div></div>
+      </div>
+      <div class="cb">
+        <h3>Режим работы</h3>
+        <div class="wht">
+          <div class="whr"><span>Понедельник</span><span>9:00–18:00</span></div>
+          <div class="whr"><span>Вторник</span><span>9:00–18:00</span></div>
+          <div class="whr"><span>Среда</span><span>9:00–18:00</span></div>
+          <div class="whr"><span>Четверг</span><span>9:00–18:00</span></div>
+          <div class="whr"><span>Пятница</span><span>9:00–17:00</span></div>
+          <div class="whr"><span>Суббота</span><span>Выходной</span></div>
+          <div class="whr"><span>Воскресенье</span><span>Выходной</span></div>
+        </div>
+      </div>
+      <div class="cb">
+        <h3>Мессенджеры</h3>
+        <a href="#" class="msl"><div class="msi" style="background:#2AABEE"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.01c-.13.58-.47.72-.95.45l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.87-4.4c.21-.19-.05-.29-.33-.1L7.9 14.47l-2.58-.81c-.56-.18-.57-.56.12-.83l10.05-3.87c.47-.17.88.11.72.82z"/></svg></div><div class="mst"><strong>Telegram</strong><span>@budprogress</span></div></a>
+        <a href="#" class="msl"><div class="msi" style="background:#25D366"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div class="mst"><strong>WhatsApp</strong><span>+7 (000) 000-00-00</span></div></a>
+      </div>
+    </div>
+    <div>
+      <div class="mapph">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <strong>Карта расположения</strong>
+          <p>Замените этот блок на iframe с Яндекс.Картами или Google Maps:<br/><br/>
+          <code style="font-size:.73rem;background:var(--border);padding:4px 10px;border-radius:4px;color:var(--navy);display:inline-block;margin-top:5px">&lt;iframe src="https://yandex.ru/map-widget/..." ...&gt;</code></p>
+        </div>
+      </div>
+      <div class="cb" style="margin-top:18px">
+        <h3>Как нас найти</h3>
+        <p style="font-size:.84rem;color:var(--muted);line-height:1.7">[Описание пути к офису. Укажите ориентиры, ближайшие остановки транспорта, информацию о парковке.]</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">
+          <span style="font-size:.81rem;color:var(--muted)">🚌 Остановка: [Название]</span>
+          <span style="font-size:.81rem;color:var(--muted)">🚗 Парковка: [Описание]</span>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="fg">
+      <div class="fb">
+        <h3>BUD PROGRESS</h3>
+        <p>Надёжный поставщик инженерных систем и оборудования для объектов любого масштаба. Качественная продукция, экспертные консультации, оперативная доставка.</p>
+        <div class="fsoc">
+          <a href="#" title="ВКонтакте"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.46c-.55 0-.72-.44-1.71-1.44-.87-.83-1.24-.94-1.46-.94-.3 0-.38.08-.38.5v1.31c0 .35-.11.56-1.04.56-1.53 0-3.23-.93-4.42-2.65C5.95 10.7 5.5 9.14 5.5 8.77c0-.22.08-.43.5-.43h1.46c.38 0 .52.17.67.57.73 2.1 1.96 3.94 2.46 3.94.19 0 .27-.09.27-.58V9.9c-.06-1.05-.61-1.14-.61-1.52 0-.19.16-.38.41-.38h2.3c.32 0 .43.17.43.54v2.9c0 .32.14.43.23.43.19 0 .35-.11.7-.46 1.08-1.21 1.85-3.07 1.85-3.07.1-.22.29-.43.67-.43h1.46c.44 0 .54.23.44.54-.18.84-1.96 3.36-1.96 3.36-.15.25-.21.36 0 .64.16.21.68.66 1.02 1.06.64.72 1.12 1.33 1.25 1.75.11.41-.1.62-.5.62z"/></svg></a>
+          <a href="#" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.01c-.13.58-.47.72-.95.45l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.87-4.4c.21-.19-.05-.29-.33-.1L7.9 14.47l-2.58-.81c-.56-.18-.57-.56.12-.83l10.05-3.87c.47-.17.88.11.72.82z"/></svg></a>
+          <a href="#" title="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="fc2">
+        <h4>Каталог</h4>
+        <ul>
+          <li><span onclick="go('catalog','pipes')">Трубопроводные системы</span></li>
+          <li><span onclick="go('catalog','valves')">Запорная арматура</span></li>
+          <li><span onclick="go('catalog','heating')">Отопительное оборудование</span></li>
+          <li><span onclick="go('catalog','water')">Водоснабжение</span></li>
+          <li><span onclick="go('catalog','sewage')">Канализация</span></li>
+          <li><span onclick="go('catalog','ventilation')">Вентиляция</span></li>
+          <li><span onclick="go('catalog','tools')">Инструмент</span></li>
+        </ul>
+      </div>
+      <div class="fc2">
+        <h4>Компания</h4>
+        <ul>
+          <li><span onclick="go('about')">О компании</span></li>
+          <li><span onclick="go('contacts')">Контакты</span></li>
+        </ul>
+      </div>
+      <div class="fc2">
+        <h4>Контакты</h4>
+        <div class="fcts">
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div class="fct"><strong>г. [Город]</strong>ул. [Улица], д. [Номер]</div></div>
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div class="fct"><strong>+7 (000) 000-00-00</strong>Пн–Пт: 9:00–18:00</div></div>
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong>info@budprogress.kz</strong></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2025 BUD PROGRESS. Все права защищены.</span>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── PAGE NAVIGATION ───
+function go(page, anchor) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.querySelectorAll('.nl').forEach(l => l.classList.remove('active'));
+  if (anchor) setTimeout(() => scr(anchor), 180);
+  setTimeout(initCounters, 80);
+}
+
+// ─── MOBILE MENU ───
+function toggleMenu() {
+  const b = document.getElementById('burger');
+  const n = document.getElementById('mobNav');
+  const o = document.getElementById('mobOv');
+  b.classList.toggle('open');
+  n.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow = n.classList.contains('open') ? 'hidden' : '';
+}
+function cm() {
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobNav').classList.remove('open');
+  document.getElementById('mobOv').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ─── HERO SLIDER ───
+let hIdx = 0, hTimer;
+function hSet(n) {
+  hIdx = n;
+  document.getElementById('heroTrack').style.transform = `translateX(-${n * 100}%)`;
+  document.querySelectorAll('.hdot').forEach((d, i) => d.classList.toggle('active', i === n));
+}
+function hGo(d) { hSet((hIdx + d + 3) % 3); clearInterval(hTimer); hTimer = setInterval(() => hSet((hIdx + 1) % 3), 5200); }
+hTimer = setInterval(() => hSet((hIdx + 1) % 3), 5200);
+
+// ─── CATALOG SCROLL ───
+function scr(id) {
+  const el = document.getElementById('cat-' + id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 88;
+  window.scrollTo({ top, behavior: 'smooth' });
+  document.querySelectorAll('.sw-b span').forEach(s => s.classList.remove('active'));
+  const sb = document.getElementById('sb-' + id);
+  if (sb) sb.classList.add('active');
+}
+
+// ─── COUNTER ANIMATION ───
+const counted = new WeakSet();
+function initCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    if (counted.has(el)) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight) {
+      counted.add(el);
+      const target = +el.dataset.count;
+      let n = 0;
+      const t = setInterval(() => {
+        n = Math.min(n + target / 45, target);
+        el.textContent = Math.floor(n).toLocaleString('ru');
+        if (n >= target) { el.textContent = target.toLocaleString('ru'); clearInterval(t); }
+      }, 28);
+    }
+  });
+}
+window.addEventListener('scroll', initCounters);
+initCounters();
+
+// ─── SCROLL REVEAL ───
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: .1 });
+function reveal() {
+  document.querySelectorAll('.cc,.nc,.vc,.pcard,.tc').forEach(el => {
+    if (!el.style.opacity) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .48s ease, transform .48s ease';
+      obs.observe(el);
+    }
+  });
+}
+reveal();
+</script>
+</body>
+</html>
