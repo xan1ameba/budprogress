@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BUD PROGRESS — Каталог</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:#1A2440;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-style:none}button{cursor:pointer;border:none;background:none;font-family:inherit}
+:root{
+  --navy:#1B3A7A;--navy-d:#0F2550;--navy-l:#2550A0;
+  --blue:#4A9FD5;--blue-l:#7EC8E3;--blue-pale:#E8F4FC;
+  --text:#1A2440;--muted:#5A6B8A;--border:#D6E4F0;--bg:#F5F8FC;--white:#fff;
+  --shadow-sm:0 2px 8px rgba(27,58,122,.08);--shadow-md:0 6px 24px rgba(27,58,122,.13);--shadow-lg:0 14px 44px rgba(27,58,122,.18);
+  --r:8px;--rl:14px;--t:.24s ease;
+}
+h1,h2,h3,h4{font-family:'Exo 2',sans-serif;line-height:1.2}
+h1{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:800}
+h2{font-size:clamp(1.35rem,3vw,2rem);font-weight:700}
+h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+.section{padding:60px 0}.section--gray{background:var(--bg)}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head h2{color:var(--navy);margin-bottom:10px}
+.sec-head p{color:var(--muted);max-width:560px;margin:0 auto;font-size:1rem}
+.sec-head .ln{width:52px;height:4px;background:linear-gradient(90deg,var(--blue),var(--navy));border-radius:2px;margin:13px auto 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:600;font-size:.91rem;transition:all var(--t);cursor:pointer;white-space:nowrap}
+.bp{background:var(--navy);color:#fff}.bp:hover{background:var(--navy-l);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.bo{border:2px solid var(--navy);color:var(--navy)}.bo:hover{background:var(--navy);color:#fff}
+.bw{background:#fff;color:var(--navy)}.bw:hover{background:var(--blue-pale);transform:translateY(-2px)}
+.bg{border:2px solid rgba(255,255,255,.5);color:#fff}.bg:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.page{display:none}.page.active{display:block}
+
+/* TOPBAR */
+.topbar{background:var(--navy-d);color:rgba(255,255,255,.65);font-size:.78rem;padding:5px 0}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar a{color:rgba(255,255,255,.65);transition:color var(--t)}.topbar a:hover{color:#fff}
+.tbph{color:#fff!important;font-weight:700;font-size:.86rem}
+.tbl,.tbr{display:flex;align-items:center;gap:16px}
+
+/* HEADER */
+.header{background:#fff;box-shadow:var(--shadow-sm);position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--navy)}
+.header .container{display:flex;align-items:center;gap:24px;height:66px}
+.logo{display:flex;align-items:center;cursor:pointer;flex-shrink:0}
+.logo svg{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:2px;flex:1}
+.nl{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;font-size:.88rem;color:var(--text);transition:all var(--t);cursor:pointer;white-space:nowrap}
+.nl:hover,.nl.active{color:var(--navy);background:var(--blue-pale)}
+.hr{display:flex;align-items:center;gap:11px;margin-left:auto}
+.hph{display:flex;align-items:center;gap:7px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:.95rem;color:var(--navy);white-space:nowrap}
+.hph svg{color:var(--blue);flex-shrink:0}
+.burger{display:none;flex-direction:column;gap:5px;padding:7px;border-radius:6px;cursor:pointer}
+.burger span{display:block;width:23px;height:2px;background:var(--navy);border-radius:2px;transition:all var(--t)}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-nav{display:none;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;box-shadow:var(--shadow-lg);z-index:9999;padding:72px 18px 28px;overflow-y:auto;transition:right .3s ease;flex-direction:column;gap:3px}
+.mob-nav.open{right:0}
+.mob-nav span,.mob-nav a{display:block;padding:11px 14px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;color:var(--text);border-bottom:1px solid var(--border);cursor:pointer}
+.mob-nav span:hover,.mob-nav a:hover{color:var(--navy);background:var(--blue-pale)}
+.mob-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998}
+.mob-ov.open{display:block}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F2550 0%,#1B3A7A 55%,#1B5FA0 100%);padding:80px 0;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:2;max-width:620px}
+.htag{display:inline-block;background:rgba(74,159,213,.25);border:1px solid rgba(74,159,213,.5);color:var(--blue-l);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 13px;border-radius:20px;margin-bottom:16px}
+.hero-inner h1{color:#fff;margin-bottom:14px}
+.hero-inner p{color:rgba(255,255,255,.76);font-size:1.05rem;margin-bottom:30px;max-width:480px}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-decor{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.06;pointer-events:none}
+.hero-decor svg{width:440px;height:440px}
+
+/* FEATURES STRIP */
+.fstrip{background:var(--navy)}
+.fstrip .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.fi{display:flex;align-items:center;gap:13px;padding:20px 16px;border-right:1px solid rgba(255,255,255,.08)}
+.fi:last-child{border-right:none}
+.fi-ic{width:40px;height:40px;border-radius:9px;background:rgba(74,159,213,.17);display:flex;align-items:center;justify-content:center;color:var(--blue-l);flex-shrink:0}
+.fi-tx strong{display:block;font-family:'Exo 2',sans-serif;font-weight:600;font-size:.86rem;color:#fff}
+.fi-tx span{font-size:.74rem;color:rgba(255,255,255,.5)}
+
+/* ABOUT BLOCK (homepage) */
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-img{border-radius:var(--rl);overflow:hidden;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative;font-size:5rem;opacity:.3}
+.about-badge{position:absolute;bottom:20px;right:20px;background:var(--navy);color:#fff;border-radius:var(--rl);padding:13px 17px;text-align:center;opacity:1}
+.about-badge strong{display:block;font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:800}
+.about-badge span{font-size:.72rem;opacity:.75}
+.about-tx h2{color:var(--navy);margin-bottom:13px}
+.about-tx p{color:var(--muted);margin-bottom:14px;line-height:1.75}
+.chk{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.chk-i{display:flex;align-items:flex-start;gap:10px;font-size:.91rem}
+.chk-ic{width:21px;height:21px;border-radius:50%;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%);padding:58px 0;text-align:center}
+.cta h2{color:#fff;margin-bottom:12px}.cta p{color:rgba(255,255,255,.76);margin-bottom:28px;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* PAGE HERO */
+.ph{background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy) 100%);padding:44px 0}
+.ph h1{color:#fff;margin-bottom:5px}.ph p{color:rgba(255,255,255,.7);margin-top:7px;max-width:500px}
+.bc{display:flex;align-items:center;gap:6px;font-size:.8rem;color:rgba(255,255,255,.52);margin-bottom:7px}
+.bc .cur{color:rgba(255,255,255,.88)}.bc-sep{opacity:.32}
+
+/* CATALOG LAYOUT */
+.cat-lay{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:44px 0}
+.sw{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
+.sw-t{background:var(--navy);color:#fff;padding:12px 17px;font-family:'Exo 2',sans-serif;font-weight:700;font-size:.87rem}
+.sw-b{padding:6px}
+.sw-b span{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:6px;font-size:.83rem;color:var(--text);transition:all var(--t);cursor:pointer}
+.sw-b span:hover,.sw-b span.active{background:var(--blue-pale);color:var(--navy);font-weight:600}
+
+/* PRODUCT GRID */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;transition:all var(--t)}
+.pcard:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--blue)}
+.pimg{height:200px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);padding:16px;overflow:hidden}
+.pimg img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(27,58,122,.1))}
+.pb{padding:14px;flex:1;display:flex;flex-direction:column}
+.pc{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.pn{font-family:'Exo 2',sans-serif;font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.35;flex:1}
+.pbrand{display:inline-flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:10px;width:fit-content}
+.pm{display:inline-flex;align-items:center;gap:4px;padding:8px 14px;border-radius:6px;background:var(--blue-pale);color:var(--navy);font-family:'Exo 2',sans-serif;font-size:.8rem;font-weight:600;transition:all var(--t);cursor:pointer;border:none;margin-top:auto}
+.pm:hover{background:var(--navy);color:#fff}
+
+/* SIZES TABLE in card */
+.sz-table{width:100%;border-collapse:collapse;font-size:.74rem;margin-bottom:10px}
+.sz-table th{background:var(--bg);color:var(--muted);font-weight:600;padding:4px 8px;text-align:left;border-bottom:1px solid var(--border)}
+.sz-table td{padding:3px 8px;border-bottom:1px solid var(--border);color:var(--text)}
+.sz-table tr:last-child td{border-bottom:none}
+.sz-table td.price{font-family:'Exo 2',sans-serif;font-weight:700;color:var(--navy);white-space:nowrap}
+
+/* BRAND SECTION */
+.brand-badge{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:14px 18px;margin-bottom:20px}
+.brand-badge img{height:32px;object-fit:contain}
+.brand-badge span{font-size:.82rem;color:var(--muted);line-height:1.5}
+.brand-badge strong{display:block;color:var(--navy);font-family:'Exo 2',sans-serif;font-size:.9rem}
+
+/* ABOUT PAGE */
+.ai{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:56px 0}
+.ai p{color:var(--muted);margin-bottom:14px;line-height:1.76}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vc{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:24px 20px;text-align:center;transition:all var(--t)}
+.vc:hover{box-shadow:var(--shadow-md);border-color:var(--blue);transform:translateY(-3px)}
+.vic{width:56px;height:56px;border-radius:14px;background:var(--blue-pale);margin:0 auto 13px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.vc h3{color:var(--navy);margin-bottom:8px;font-size:.97rem}.vc p{font-size:.83rem;color:var(--muted)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tc{border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);transition:all var(--t);background:#fff}
+.tc:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.tcp{height:180px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.tcb{padding:14px;text-align:center}
+.tcb h4{color:var(--navy);margin-bottom:3px;font-size:.93rem}.tcb span{font-size:.78rem;color:var(--muted)}
+.timeline{position:relative;padding-left:36px;max-width:640px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.ti{position:relative;margin-bottom:30px}
+.ti::before{content:'';position:absolute;left:-41px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--navy);border:3px solid var(--blue)}
+.ty{font-family:'Exo 2',sans-serif;font-weight:700;color:var(--blue);margin-bottom:4px;font-size:.9rem}
+.ti h4{color:var(--navy);margin-bottom:4px;font-size:.97rem}.ti p{font-size:.84rem;color:var(--muted)}
+.pg2{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.par{aspect-ratio:2/1;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--muted);font-family:'Exo 2',sans-serif;font-weight:600;background:#fff;text-align:center;padding:9px;transition:all var(--t)}
+.par:hover{border-color:var(--blue);color:var(--navy);box-shadow:var(--shadow-sm)}
+
+/* CONTACTS */
+.cl{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;padding:56px 0}
+.cb{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:24px;margin-bottom:16px}
+.cb h3{color:var(--navy);margin-bottom:16px;font-size:.97rem}
+.cr{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.cr:last-child{margin-bottom:0}
+.ci{width:38px;height:38px;border-radius:9px;background:var(--blue-pale);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ct strong{display:block;font-size:.88rem;color:var(--navy);margin-bottom:2px}
+.ct span{font-size:.82rem;color:var(--muted)}
+.wht{display:flex;flex-direction:column}
+.whr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:.84rem}
+.whr:last-child{border-bottom:none}
+.whr span:first-child{color:var(--muted)}.whr span:last-child{font-weight:600;color:var(--navy)}
+.mapph{border-radius:var(--rl);background:var(--bg);min-height:420px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);text-align:center;padding:36px}
+.mapph p{color:var(--muted);font-size:.86rem;line-height:1.7}
+.mapph strong{display:block;font-family:'Exo 2',sans-serif;color:var(--navy);font-size:.97rem;margin-bottom:7px}
+.msl{display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r);border:1px solid var(--border);transition:all var(--t);cursor:pointer;margin-bottom:9px}
+.msl:last-child{margin-bottom:0}.msl:hover{border-color:var(--blue)}
+.msi{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mst strong{display:block;font-size:.86rem;color:var(--navy)}.mst span{font-size:.76rem;color:var(--muted)}
+
+/* FOOTER */
+.footer{background:var(--navy-d);color:rgba(255,255,255,.68);padding:48px 0 0}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:40px}
+.fb h3{color:#fff;font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:9px}
+.fb p{font-size:.83rem;line-height:1.7;margin-bottom:16px}
+.fsoc{display:flex;gap:8px}
+.fsoc a{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;transition:all var(--t)}
+.fsoc a:hover{background:var(--blue);color:#fff}
+.fc2 h4{color:#fff;font-family:'Exo 2',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:13px}
+.fc2 ul{display:flex;flex-direction:column;gap:7px}
+.fc2 ul li span{font-size:.8rem;color:rgba(255,255,255,.55);transition:color var(--t);cursor:pointer;display:block}
+.fc2 ul li span:hover{color:#fff}
+.fcts{display:flex;flex-direction:column;gap:12px}
+.fcr{display:flex;align-items:flex-start;gap:8px}
+.fcr svg{color:var(--blue);margin-top:2px;flex-shrink:0}
+.fct{font-size:.8rem}.fct strong{display:block;color:#fff;font-size:.85rem}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.77rem}
+.fbot a{color:rgba(255,255,255,.42);transition:color var(--t)}.fbot a:hover{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .fstrip .container{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr 1fr}
+  .pg{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav,.hph{display:none}.burger{display:flex}.mob-nav{display:flex}
+  .about-g,.ai,.cl{grid-template-columns:1fr}
+  .cat-lay{grid-template-columns:1fr}
+  .pg{grid-template-columns:1fr}
+  .vg{grid-template-columns:1fr 1fr}
+  .tg{grid-template-columns:repeat(2,1fr)}
+  .pg2{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+  .fstrip .container{grid-template-columns:1fr}
+  .hbtns{flex-direction:column}
+  .pg2{grid-template-columns:repeat(2,1fr)}
+}
+
+.nl{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;font-size:.88rem;color:var(--text);transition:all var(--t);white-space:nowrap;text-decoration:none}
+.nl:hover,.nl.active{color:var(--navy);background:var(--blue-pale)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <div class="tbl"><span>🕐 Пн–Пт: 9:00–18:00</span></div>
+    <div class="tbr">
+      <a href="/cdn-cgi/l/email-protection#84f7e5eaf0e1ece2ebf6e9c4e3e9e5ede8aae7ebe9"><span class="__cf_email__" data-cfemail="90e3f1fee4f5f8f6ffe2fdd0f7fdf1f9fcbef3fffd">[email&#160;protected]</span></a>
+      <a href="tel:+87758191232" class="tbph">+7 775 819-12-32</a>
+    </div>
+  </div>
+</div>
+<header class="header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="21" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">BUD</text>
+        <text x="2" y="44" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">PR</text>
+        <g transform="translate(52.5,32)">
+          <circle r="2.1" fill="#1B3A7A" opacity=".92" transform="rotate(0)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#1B3A7A" opacity=".78" transform="rotate(30)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#2A4FA0" opacity=".62" transform="rotate(60)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#4A9FD5" opacity=".5"  transform="rotate(90)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#4A9FD5" opacity=".38" transform="rotate(120)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#7EC8E3" opacity=".28" transform="rotate(150)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#7EC8E3" opacity=".2"  transform="rotate(180)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#B0D8EC" opacity=".14" transform="rotate(210)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#B0D8EC" opacity=".10" transform="rotate(240)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#D0E8F5" opacity=".08" transform="rotate(270)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#D0E8F5" opacity=".09" transform="rotate(300)translate(0,-8.5)"/>
+          <circle r="2.1" fill="#1B3A7A" opacity=".5"  transform="rotate(330)translate(0,-8.5)"/>
+        </g>
+        <text x="65" y="44" font-family="'Exo 2',sans-serif" font-weight="900" font-size="21" fill="#1B3A7A">GRESS</text>
+        <text x="158" y="29" font-family="sans-serif" font-size="8" fill="#1B3A7A" opacity=".65">®</text>
+      </svg>
+    </a>
+    <nav class="nav">
+      <a class="nl active" href="catalog.html">Каталог</a>
+      <a class="nl" href="about.html">О компании</a>
+      <a class="nl" href="contacts.html">Контакты</a>
+      </nav>
+    <div class="hr">
+      <a href="tel:+87758191232" class="hph">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +7 775 819-12-32
+      </a>
+      <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mob-nav" id="mobNav">
+  <a href="index.html">🏠 Главная</a>
+  <a href="catalog.html">Каталог</a>
+<a href="about.html">О компании</a>
+<a href="contacts.html">Контакты</a>
+
+  <a href="tel:+87758191232">📞 +7 775 819-12-32</a>
+</nav>
+<div class="mob-ov" id="mobOv" onclick="cm()"></div>
+
+
+  <div class="ph"><div class="container">
+    <div class="bc"><a href="index.html">Главная</span><span class="bc-sep">›</span><span class="cur">Каталог</span></div>
+    <h1>Каталог продукции</h1>
+    <p>Полипропиленовые трубы и фитинги для профессионального монтажа</p>
+  </div></div>
+
+  <div class="container">
+    <div class="cat-lay">
+
+      <aside>
+        <div class="sw">
+          <div class="sw-t">Разделы</div>
+          <div class="sw-b">
+            <span id="sb-pipes" onclick="scr('pipes')">Трубы PP-R</span>
+            <span id="sb-fittings" onclick="scr('fittings')">Фитинги PP-R</span>
+          </div>
+        </div>
+        <div class="sw">
+          <div class="sw-t">Нужна помощь?</div>
+          <div style="padding:16px">
+            <p style="font-size:.81rem;color:var(--muted);margin-bottom:11px;line-height:1.6">Наши специалисты помогут подобрать необходимое оборудование</p>
+            <button class="btn bp" style="width:100%;justify-content:center;font-size:.82rem;padding:9px 14px" onclick="location.href='contacts.html'">Задать вопрос</button>
+            <a href="tel:+87758191232" style="display:block;text-align:center;margin-top:10px;font-size:.83rem;color:var(--navy);font-weight:600">+7 775 819-12-32</a>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+
+        <!-- Поставщик -->
+        <div class="brand-badge">
+          <svg viewBox="0 0 120 32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="32" rx="4" fill="#1B3A7A"/>
+            <text x="60" y="22" font-family="'Exo 2',sans-serif" font-weight="900" font-size="16" fill="white" text-anchor="middle" letter-spacing="2">KAISER</text>
+          </svg>
+          <div>
+            <strong>KAISER Engineering</strong>
+            <span>Полипропиленовые трубы и фитинги — сертифицированная продукция</span>
+          </div>
+        </div>
+
+        <!-- ТРУБЫ -->
+        <div id="cat-pipes" style="scroll-margin-top:86px">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.1rem;color:var(--navy);margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border)">🔵 Трубы PP-R</div>
+          <div class="pg">
+
+            <!-- 1. Труба PP-R PN16 -->
+            <div class="pcard">
+              <div class="pimg" id="img-pipe-pn16">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="160">
+                  <rect x="10" y="60" width="180" height="40" rx="20" fill="#e8780a" stroke="#b05800" stroke-width="1.5"/>
+                  <rect x="10" y="60" width="180" height="20" rx="20" fill="#f09030"/>
+                  <ellipse cx="10" cy="80" rx="20" ry="20" fill="#c86000" stroke="#b05800" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="12" ry="12" fill="#e07020"/>
+                  <ellipse cx="10" cy="80" rx="5" ry="5" fill="#802800"/>
+                  <text x="70" y="85" font-family="sans-serif" font-size="12" font-weight="700" fill="white" opacity=".9">PP-R PN16</text>
+                  <rect x="10" y="61" width="180" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Трубы полипропиленовые</div>
+                <div class="pn">Труба полипропиленовая PP-R PN 16</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Толщ.</th><th>Уп.</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td>2,8</td><td>120 м</td><td class="price">169 ₸</td></tr>
+                  <tr><td>DN 25</td><td>3,5</td><td>80 м</td><td class="price">297 ₸</td></tr>
+                  <tr><td>DN 32</td><td>4,4</td><td>50 м</td><td class="price">498 ₸</td></tr>
+                  <tr><td>DN 40</td><td>5,5</td><td>40 м</td><td class="price">808 ₸</td></tr>
+                  <tr><td>DN 50</td><td>6,9</td><td>24 м</td><td class="price">1 273 ₸</td></tr>
+                  <tr><td>DN 63</td><td>8,6</td><td>16 м</td><td class="price">2 148 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 2. Труба PP-R PN20 -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="160">
+                  <rect x="10" y="60" width="180" height="40" rx="20" fill="#d06000" stroke="#904000" stroke-width="1.5"/>
+                  <rect x="10" y="60" width="180" height="20" rx="20" fill="#e07020"/>
+                  <ellipse cx="10" cy="80" rx="20" ry="20" fill="#b05000" stroke="#904000" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="12" ry="12" fill="#c06010"/>
+                  <ellipse cx="10" cy="80" rx="5" ry="5" fill="#602000"/>
+                  <text x="70" y="85" font-family="sans-serif" font-size="12" font-weight="700" fill="white" opacity=".9">PP-R PN20</text>
+                  <rect x="10" y="61" width="180" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Трубы полипропиленовые</div>
+                <div class="pn">Труба полипропиленовая PP-R PN 20</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Толщ.</th><th>Уп.</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td>3,4</td><td>120 м</td><td class="price">199 ₸</td></tr>
+                  <tr><td>DN 25</td><td>4,4</td><td>80 м</td><td class="price">329 ₸</td></tr>
+                  <tr><td>DN 32</td><td>5,4</td><td>50 м</td><td class="price">564 ₸</td></tr>
+                  <tr><td>DN 40</td><td>6,7</td><td>40 м</td><td class="price">940 ₸</td></tr>
+                  <tr><td>DN 50</td><td>8,3</td><td>24 м</td><td class="price">1 446 ₸</td></tr>
+                  <tr><td>DN 63</td><td>10,5</td><td>16 м</td><td class="price">2 281 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 3. Труба PP-R со стекловолокном PN20 -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="160">
+                  <rect x="10" y="60" width="180" height="40" rx="20" fill="#4A7EB5" stroke="#2A5A8A" stroke-width="1.5"/>
+                  <rect x="10" y="60" width="180" height="20" rx="20" fill="#5A94C8"/>
+                  <!-- glass fiber stripes -->
+                  <line x1="10" y1="72" x2="190" y2="72" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+                  <line x1="10" y1="78" x2="190" y2="78" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+                  <line x1="10" y1="84" x2="190" y2="84" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="20" ry="20" fill="#3A6A9A" stroke="#2A5A8A" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="12" ry="12" fill="#5E8AB5"/>
+                  <ellipse cx="10" cy="80" rx="5" ry="5" fill="#1A3A6A"/>
+                  <text x="52" y="85" font-family="sans-serif" font-size="10" font-weight="700" fill="white" opacity=".9">PN20 + Glass</text>
+                  <rect x="10" y="61" width="180" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Трубы армированные</div>
+                <div class="pn">Труба PP-R со стекловолокном PN 20</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Толщ.</th><th>Уп.</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td>2,8</td><td>120 м</td><td class="price">185 ₸</td></tr>
+                  <tr><td>DN 25</td><td>3,5</td><td>80 м</td><td class="price">270 ₸</td></tr>
+                  <tr><td>DN 32</td><td>4,4</td><td>60 м</td><td class="price">437 ₸</td></tr>
+                  <tr><td>DN 40</td><td>5,5</td><td>40 м</td><td class="price">730 ₸</td></tr>
+                  <tr><td>DN 50</td><td>6,9</td><td>24 м</td><td class="price">1 288 ₸</td></tr>
+                  <tr><td>DN 63</td><td>8,6</td><td>16 м</td><td class="price">2 049 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 4. Труба PP-R со стекловолокном PN25 -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="160">
+                  <rect x="10" y="60" width="180" height="40" rx="20" fill="#2A5A9A" stroke="#1A3A6A" stroke-width="1.5"/>
+                  <rect x="10" y="60" width="180" height="20" rx="20" fill="#3A70B0"/>
+                  <line x1="10" y1="72" x2="190" y2="72" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+                  <line x1="10" y1="78" x2="190" y2="78" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+                  <line x1="10" y1="84" x2="190" y2="84" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="20" ry="20" fill="#1A4A7A" stroke="#1A3A6A" stroke-width="1.5"/>
+                  <ellipse cx="10" cy="80" rx="12" ry="12" fill="#3060A0"/>
+                  <ellipse cx="10" cy="80" rx="5" ry="5" fill="#0A2040"/>
+                  <text x="52" y="85" font-family="sans-serif" font-size="10" font-weight="700" fill="white" opacity=".9">PN25 + Glass</text>
+                  <rect x="10" y="61" width="180" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Трубы армированные</div>
+                <div class="pn">Труба PP-R со стекловолокном PN 25</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Толщ.</th><th>Уп.</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td>3,4</td><td>120 м</td><td class="price">229 ₸</td></tr>
+                  <tr><td>DN 25</td><td>4,4</td><td>80 м</td><td class="price">372 ₸</td></tr>
+                  <tr><td>DN 32</td><td>5,4</td><td>60 м</td><td class="price">593 ₸</td></tr>
+                  <tr><td>DN 40</td><td>6,7</td><td>40 м</td><td class="price">964 ₸</td></tr>
+                  <tr><td>DN 50</td><td>8,3</td><td>24 м</td><td class="price">1 504 ₸</td></tr>
+                  <tr><td>DN 63</td><td>10,5</td><td>16 м</td><td class="price">2 382 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ФИТИНГИ -->
+        <div id="cat-fittings" style="scroll-margin-top:86px;margin-top:40px">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:700;font-size:1.1rem;color:var(--navy);margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border)">🔩 Фитинги PP-R</div>
+          <div class="pg">
+
+            <!-- 5. Отвод 90° -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <path d="M 40 130 L 40 80 Q 40 50 70 50 L 130 50" fill="none" stroke="#e8780a" stroke-width="28" stroke-linecap="round"/>
+                  <path d="M 40 130 L 40 80 Q 40 50 70 50 L 130 50" fill="none" stroke="#f09030" stroke-width="14" stroke-linecap="round" opacity=".5"/>
+                  <path d="M 40 130 L 40 80 Q 40 50 70 50 L 130 50" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="6" stroke-linecap="round"/>
+                  <text x="75" y="125" font-family="sans-serif" font-size="11" font-weight="700" fill="#1B3A7A">90°</text>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Отвод 90° PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">19 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">36 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">59 ₸</td></tr>
+                  <tr><td>DN 40</td><td class="price">138 ₸</td></tr>
+                  <tr><td>DN 50</td><td class="price">224 ₸</td></tr>
+                  <tr><td>DN 63</td><td class="price">407 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 6. Отвод 45° -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <path d="M 40 130 L 40 90 Q 42 65 90 50 L 150 50" fill="none" stroke="#e8780a" stroke-width="28" stroke-linecap="round"/>
+                  <path d="M 40 130 L 40 90 Q 42 65 90 50 L 150 50" fill="none" stroke="#f09030" stroke-width="14" stroke-linecap="round" opacity=".5"/>
+                  <path d="M 40 130 L 40 90 Q 42 65 90 50 L 150 50" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="6" stroke-linecap="round"/>
+                  <text x="80" y="125" font-family="sans-serif" font-size="11" font-weight="700" fill="#1B3A7A">45°</text>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Отвод 45° PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">26 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">34 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">61 ₸</td></tr>
+                  <tr><td>DN 40</td><td class="price">120 ₸</td></tr>
+                  <tr><td>DN 50</td><td class="price">—</td></tr>
+                  <tr><td>DN 63</td><td class="price">—</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 7. Муфта -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <rect x="20" y="65" width="60" height="30" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="120" y="65" width="60" height="30" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="75" y="55" width="50" height="50" rx="6" fill="#d06000" stroke="#b05800" stroke-width="1.5"/>
+                  <rect x="75" y="55" width="50" height="25" rx="6" fill="#e07020"/>
+                  <rect x="20" y="68" width="60" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="120" y="68" width="60" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <text x="82" y="85" font-family="sans-serif" font-size="10" fill="white" opacity=".8" font-weight="600">муфта</text>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Муфта PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">18 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">23 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">49 ₸</td></tr>
+                  <tr><td>DN 40</td><td class="price">80 ₸</td></tr>
+                  <tr><td>DN 50</td><td class="price">—</td></tr>
+                  <tr><td>DN 63</td><td class="price">—</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 8. Тройник -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <!-- horizontal pipe -->
+                  <rect x="10" y="65" width="80" height="30" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="110" y="65" width="80" height="30" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <!-- center body -->
+                  <rect x="85" y="55" width="30" height="50" rx="5" fill="#d06000" stroke="#b05800" stroke-width="1.5"/>
+                  <!-- vertical outlet -->
+                  <rect x="90" y="105" width="20" height="40" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="10" y="68" width="80" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="110" y="68" width="80" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Тройник PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">31 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">47 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">88 ₸</td></tr>
+                  <tr><td>DN 40</td><td class="price">171 ₸</td></tr>
+                  <tr><td>DN 50</td><td class="price">296 ₸</td></tr>
+                  <tr><td>DN 63</td><td class="price">541 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 9. Мост короткий -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <rect x="10" y="80" width="50" height="20" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="140" y="80" width="50" height="20" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <path d="M 60 90 Q 60 40 100 40 Q 140 40 140 90" fill="none" stroke="#e8780a" stroke-width="20" stroke-linecap="round"/>
+                  <path d="M 60 90 Q 60 40 100 40 Q 140 40 140 90" fill="none" stroke="#f09030" stroke-width="10" stroke-linecap="round" opacity=".4"/>
+                  <path d="M 60 90 Q 60 40 100 40 Q 140 40 140 90" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="10" y="82" width="50" height="7" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="140" y="82" width="50" height="7" rx="2" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Мост короткий PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">86 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">120 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">264 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 10. Заглушка -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="120">
+                  <rect x="40" y="65" width="80" height="30" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="110" y="55" width="40" height="50" rx="8" fill="#d06000" stroke="#b05800" stroke-width="1.5"/>
+                  <rect x="110" y="55" width="40" height="25" rx="8" fill="#e07020"/>
+                  <rect x="40" y="68" width="70" height="8" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <text x="118" y="85" font-family="sans-serif" font-size="9" fill="white" opacity=".8" font-weight="600">заглуш.</text>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Заглушка PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>DN 20</td><td class="price">18 ₸</td></tr>
+                  <tr><td>DN 25</td><td class="price">27 ₸</td></tr>
+                  <tr><td>DN 32</td><td class="price">53 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 11. Муфта-переходник -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <rect x="10" y="70" width="60" height="20" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="130" y="75" width="60" height="12" rx="3" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <!-- tapered body -->
+                  <polygon points="70,62 130,68 130,92 70,90" fill="#d06000" stroke="#b05800" stroke-width="1.3"/>
+                  <polygon points="70,62 130,68 130,76 70,69" fill="#e07020" opacity=".7"/>
+                  <rect x="10" y="72" width="60" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="130" y="76" width="60" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Муфта-переходник PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>25×20</td><td class="price">23 ₸</td></tr>
+                  <tr><td>32×20</td><td class="price">43 ₸</td></tr>
+                  <tr><td>32×25</td><td class="price">59 ₸</td></tr>
+                  <tr><td>40×20</td><td class="price">68 ₸</td></tr>
+                  <tr><td>40×25</td><td class="price">68 ₸</td></tr>
+                  <tr><td>40×32</td><td class="price">79 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 12. Тройник-переходник -->
+            <div class="pcard">
+              <div class="pimg">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" width="140">
+                  <rect x="10" y="65" width="70" height="22" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="120" y="70" width="70" height="16" rx="3" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="85" y="52" width="35" height="16" rx="6" fill="#e8780a" stroke="#b05800" stroke-width="1.5"/>
+                  <!-- center body -->
+                  <rect x="75" y="58" width="50" height="38" rx="5" fill="#d06000" stroke="#b05800" stroke-width="1.5"/>
+                  <!-- vertical outlet bottom -->
+                  <rect x="88" y="96" width="24" height="28" rx="4" fill="#e8780a" stroke="#b05800" stroke-width="1.2"/>
+                  <rect x="10" y="67" width="70" height="7" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="120" y="71" width="70" height="5" rx="2" fill="rgba(255,255,255,.2)"/>
+                </svg>
+              </div>
+              <div class="pb">
+                <div class="pc">Фитинги полипропиленовые</div>
+                <div class="pn">Тройник-переходник PP-R</div>
+                <div class="pbrand">KAISER</div>
+                <table class="sz-table">
+                  <tr><th>Размер</th><th>Цена</th></tr>
+                  <tr><td>25×20×20</td><td class="price">57 ₸</td></tr>
+                  <tr><td>32×20×32</td><td class="price">91 ₸</td></tr>
+                  <tr><td>32×25×32</td><td class="price">100 ₸</td></tr>
+                  <tr><td>40×20×40</td><td class="price">122 ₸</td></tr>
+                  <tr><td>40×25×40</td><td class="price">128 ₸</td></tr>
+                  <tr><td>40×32×40</td><td class="price">145 ₸</td></tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <section class="cta"><div class="container">
+    <h2>Не нашли нужный товар?</h2>
+    <p>Свяжитесь с нами — поможем подобрать оборудование или сделать индивидуальный запрос</p>
+    <button class="btn bw" onclick="location.href='contacts.html'">Связаться с нами</button>
+  </div></section>
+
+</div>
+
+<!-- ══════════════════════════════════════
+   PAGE: ABOUT
+══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="fg">
+      <div class="fb">
+        <h3>BUD PROGRESS</h3>
+        <p>Надёжный поставщик инженерной сантехники в Казахстане.</p>
+        <div class="fsoc">
+          <a href="https://t.me/+87758191232" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.01c-.13.58-.47.72-.95.45l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.87-4.4c.21-.19-.05-.29-.33-.1L7.9 14.47l-2.58-.81c-.56-.18-.57-.56.12-.83l10.05-3.87c.47-.17.88.11.72.82z"/></svg></a>
+          <a href="https://wa.me/87758191232" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="fc2"><h4>Каталог</h4><ul><li><a href="catalog.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Трубы PP-R</a></li><li><a href="catalog.html#fittings" style="color:rgba(255,255,255,.55);font-size:.8rem">Фитинги PP-R</a></li></ul></div>
+      <div class="fc2"><h4>Компания</h4><ul><li><a href="about.html" style="color:rgba(255,255,255,.55);font-size:.8rem">О компании</a></li><li><a href="contacts.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Контакты</a></li></ul></div>
+      <div class="fc2"><h4>Контакты</h4><div class="fcts">
+        
+        <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div class="fct"><strong>+7 775 819-12-32</strong></div></div>
+        <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a697b746e7f727c7568775a7d777b737634797577">[email&#160;protected]</a></strong></div></div>
+      </div></div>
+    </div>
+    <div class="fbot"><span>© 2025 BUD PROGRESS. Все права защищены.</span></div>
+  </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMenu(){
+  document.getElementById('burger').classList.toggle('open');
+  document.getElementById('mobNav').classList.toggle('open');
+  document.getElementById('mobOv').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('mobNav').classList.contains('open')?'hidden':'';
+}
+function cm(){['burger','mobNav','mobOv'].forEach(id=>document.getElementById(id).classList.remove('open'));document.body.style.overflow='';}
+function scr(id){
+  const el=document.getElementById('cat-'+id);
+  if(!el)return;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-88,behavior:'smooth'});
+  document.querySelectorAll('.sw-b span').forEach(s=>s.classList.remove('active'));
+  const sb=document.getElementById('sb-'+id);if(sb)sb.classList.add('active');
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';
