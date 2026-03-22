@@ -228,18 +228,25 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
 
 .nl{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;font-size:.88rem;color:var(--text);transition:all var(--t);white-space:nowrap;text-decoration:none}
 .nl:hover,.nl.active{color:var(--navy);background:var(--blue-pale)}
+
+a.nl{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--r);font-family:'Exo 2',sans-serif;font-weight:500;font-size:.88rem;color:var(--text);transition:all var(--t);white-space:nowrap;text-decoration:none}
+a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
 </style>
 </head>
 <body>
+
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="container">
     <div class="tbl"><span>🕐 Пн–Пт: 9:00–18:00</span></div>
     <div class="tbr">
-      <a href="/cdn-cgi/l/email-protection#84f7e5eaf0e1ece2ebf6e9c4e3e9e5ede8aae7ebe9"><span class="__cf_email__" data-cfemail="90e3f1fee4f5f8f6ffe2fdd0f7fdf1f9fcbef3fffd">[email&#160;protected]</span></a>
+      <a href="mailto:santehform@gmail.com">santehform@gmail.com</a>
       <a href="tel:+87758191232" class="tbph">+7 775 819-12-32</a>
     </div>
   </div>
 </div>
+
+<!-- HEADER -->
 <header class="header">
   <div class="container">
     <a class="logo" href="index.html">
@@ -268,7 +275,7 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
       <a class="nl active" href="catalog.html">Каталог</a>
       <a class="nl" href="about.html">О компании</a>
       <a class="nl" href="contacts.html">Контакты</a>
-      </nav>
+    </nav>
     <div class="hr">
       <a href="tel:+87758191232" class="hph">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
@@ -278,46 +285,52 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
     </div>
   </div>
 </header>
+
 <nav class="mob-nav" id="mobNav">
   <a href="index.html">🏠 Главная</a>
-  <a href="catalog.html">Каталог</a>
-<a href="about.html">О компании</a>
-<a href="contacts.html">Контакты</a>
-
+  <a href="catalog.html">📦 Каталог</a>
+  <a href="about.html">🏢 О компании</a>
+  <a href="contacts.html">📍 Контакты</a>
   <a href="tel:+87758191232">📞 +7 775 819-12-32</a>
 </nav>
 <div class="mob-ov" id="mobOv" onclick="cm()"></div>
 
-
-  <div class="ph"><div class="container">
-    <div class="bc"><a href="index.html">Главная</span><span class="bc-sep">›</span><span class="cur">Каталог</span></div>
+<!-- PAGE HERO -->
+<div class="ph">
+  <div class="container">
+    <div class="bc">
+      <a href="index.html" style="color:rgba(255,255,255,.52)">Главная</a>
+      <span class="bc-sep">›</span>
+      <span class="cur">Каталог</span>
+    </div>
     <h1>Каталог продукции</h1>
     <p>Полипропиленовые трубы и фитинги для профессионального монтажа</p>
-  </div></div>
+  </div>
+</div>
 
-  <div class="container">
-    <div class="cat-lay">
+<!-- CATALOG LAYOUT -->
+<div class="container">
+  <div class="cat-lay">
 
-      <aside>
-        <div class="sw">
-          <div class="sw-t">Разделы</div>
-          <div class="sw-b">
-            <span id="sb-pipes" onclick="scr('pipes')">Трубы PP-R</span>
-            <span id="sb-fittings" onclick="scr('fittings')">Фитинги PP-R</span>
-          </div>
+    <aside>
+      <div class="sw">
+        <div class="sw-t">Разделы</div>
+        <div class="sw-b">
+          <span id="sb-pipes" onclick="scr('pipes')">Трубы PP-R</span>
+          <span id="sb-fittings" onclick="scr('fittings')">Фитинги PP-R</span>
         </div>
-        <div class="sw">
-          <div class="sw-t">Нужна помощь?</div>
-          <div style="padding:16px">
-            <p style="font-size:.81rem;color:var(--muted);margin-bottom:11px;line-height:1.6">Наши специалисты помогут подобрать необходимое оборудование</p>
-            <button class="btn bp" style="width:100%;justify-content:center;font-size:.82rem;padding:9px 14px" onclick="location.href='contacts.html'">Задать вопрос</button>
-            <a href="tel:+87758191232" style="display:block;text-align:center;margin-top:10px;font-size:.83rem;color:var(--navy);font-weight:600">+7 775 819-12-32</a>
-          </div>
+      </div>
+      <div class="sw">
+        <div class="sw-t">Нужна помощь?</div>
+        <div style="padding:16px">
+          <p style="font-size:.81rem;color:var(--muted);margin-bottom:11px;line-height:1.6">Наши специалисты помогут подобрать необходимое оборудование</p>
+          <a href="contacts.html" class="btn bp" style="width:100%;justify-content:center;font-size:.82rem;padding:9px 14px;display:flex">Задать вопрос</a>
+          <a href="tel:+87758191232" style="display:block;text-align:center;margin-top:10px;font-size:.83rem;color:var(--navy);font-weight:600">+7 775 819-12-32</a>
         </div>
-      </aside>
+      </div>
+    </aside>
 
-      <main>
-
+    <main>
         <!-- Поставщик -->
         <div class="brand-badge">
           <svg viewBox="0 0 120 32" height="32" xmlns="http://www.w3.org/2000/svg">
@@ -691,21 +704,20 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
           </div>
         </div>
 
-      </main>
-    </div>
+    </main>
+
   </div>
-
-  <section class="cta"><div class="container">
-    <h2>Не нашли нужный товар?</h2>
-    <p>Свяжитесь с нами — поможем подобрать оборудование или сделать индивидуальный запрос</p>
-    <button class="btn bw" onclick="location.href='contacts.html'">Связаться с нами</button>
-  </div></section>
-
 </div>
 
-<!-- ══════════════════════════════════════
-   PAGE: ABOUT
-══════════════════════════════════════ -->
+<section class="cta">
+  <div class="container">
+    <h2>Не нашли нужный товар?</h2>
+    <p>Свяжитесь с нами — поможем подобрать оборудование или сделать индивидуальный запрос</p>
+    <a href="contacts.html" class="btn bw">Связаться с нами</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="fg">
@@ -713,34 +725,73 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
         <h3>BUD PROGRESS</h3>
         <p>Надёжный поставщик инженерной сантехники в Казахстане.</p>
         <div class="fsoc">
-          <a href="https://t.me/+87758191232" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.01c-.13.58-.47.72-.95.45l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.87-4.4c.21-.19-.05-.29-.33-.1L7.9 14.47l-2.58-.81c-.56-.18-.57-.56.12-.83l10.05-3.87c.47-.17.88.11.72.82z"/></svg></a>
-          <a href="https://wa.me/87758191232" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://t.me/+87758191232" target="_blank" title="Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.01c-.13.58-.47.72-.95.45l-2.62-1.93-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.68 4.87-4.4c.21-.19-.05-.29-.33-.1L7.9 14.47l-2.58-.81c-.56-.18-.57-.56.12-.83l10.05-3.87c.47-.17.88.11.72.82z"/></svg></a>
+          <a href="https://wa.me/87758191232" target="_blank" title="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         </div>
       </div>
-      <div class="fc2"><h4>Каталог</h4><ul><li><a href="catalog.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Трубы PP-R</a></li><li><a href="catalog.html#fittings" style="color:rgba(255,255,255,.55);font-size:.8rem">Фитинги PP-R</a></li></ul></div>
-      <div class="fc2"><h4>Компания</h4><ul><li><a href="about.html" style="color:rgba(255,255,255,.55);font-size:.8rem">О компании</a></li><li><a href="contacts.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Контакты</a></li></ul></div>
-      <div class="fc2"><h4>Контакты</h4><div class="fcts">
-        
-        <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div class="fct"><strong>+7 775 819-12-32</strong></div></div>
-        <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a697b746e7f727c7568775a7d777b737634797577">[email&#160;protected]</a></strong></div></div>
-      </div></div>
+      <div class="fc2">
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="catalog.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Трубы PP-R</a></li>
+          <li><a href="catalog.html#fittings" style="color:rgba(255,255,255,.55);font-size:.8rem">Фитинги PP-R</a></li>
+        </ul>
+      </div>
+      <div class="fc2">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="about.html" style="color:rgba(255,255,255,.55);font-size:.8rem">О компании</a></li>
+          <li><a href="contacts.html" style="color:rgba(255,255,255,.55);font-size:.8rem">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="fc2">
+        <h4>Контакты</h4>
+        <div class="fcts">
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div class="fct"><strong>+7 775 819-12-32</strong></div></div>
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong>santehform@gmail.com</strong></div></div>
+        </div>
+      </div>
     </div>
-    <div class="fbot"><span>© 2025 BUD PROGRESS. Все права защищены.</span></div>
+    <div class="fbot">
+      <span>© 2025 BUD PROGRESS. Все права защищены.</span>
+    </div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script>
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobNav').classList.toggle('open');
   document.getElementById('mobOv').classList.toggle('open');
-  document.body.style.overflow=document.getElementById('mobNav').classList.contains('open')?'hidden':'';
+  document.body.style.overflow = document.getElementById('mobNav').classList.contains('open') ? 'hidden' : '';
 }
-function cm(){['burger','mobNav','mobOv'].forEach(id=>document.getElementById(id).classList.remove('open'));document.body.style.overflow='';}
-function scr(id){
-  const el=document.getElementById('cat-'+id);
-  if(!el)return;
-  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-88,behavior:'smooth'});
-  document.querySelectorAll('.sw-b span').forEach(s=>s.classList.remove('active'));
-  const sb=document.getElementById('sb-'+id);if(sb)sb.classList.add('active');
+function cm(){
+  ['burger','mobNav','mobOv'].forEach(id => document.getElementById(id).classList.remove('open'));
+  document.body.style.overflow = '';
 }
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';
+function scr(id) {
+  const el = document.getElementById('cat-' + id);
+  if (!el) return;
+  window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth'});
+  document.querySelectorAll('.sw-b span').forEach(s => s.classList.remove('active'));
+  const sb = document.getElementById('sb-' + id);
+  if (sb) sb.classList.add('active');
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold: .08});
+document.querySelectorAll('.pcard').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  obs.observe(el);
+});
+if (location.hash === '#fittings') setTimeout(() => scr('fittings'), 100);
+</script>
+</body>
+</html>
