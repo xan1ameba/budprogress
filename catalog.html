@@ -119,7 +119,9 @@ h3{font-size:clamp(.95rem,2vw,1.2rem);font-weight:600}
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pcard{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;transition:all var(--t)}
 .pcard:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--blue)}
-.pimg{height:200px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);padding:16px;overflow:hidden}
+.pimg{height:200px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);padding:16px;overflow:hidden;position:relative}
+.pimg::after{content:'';position:absolute;inset:6px;border:1.5px solid var(--border);border-radius:8px;pointer-events:none;transition:border-color var(--t)}
+.pcard:hover .pimg::after{border-color:var(--blue)}
 .pimg img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(27,58,122,.1))}
 .pb{padding:14px;flex:1;display:flex;flex-direction:column}
 .pc{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
@@ -240,7 +242,7 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
   <div class="container">
     <div class="tbl"></div>
     <div class="tbr">
-      <a href="mailto:santehform@gmail.com" id="email-link">santehform@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#4132202f352429272e332c01262c20282d6f222e2c" id="email-link"><span class="__cf_email__" data-cfemail="a9dac8c7ddccc1cfc6dbc4e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
       <a href="tel:+87758191232" class="tbph">+7 775 819-12-32</a>
     </div>
   </div>
@@ -527,7 +529,7 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
             <!-- 9. Мост короткий -->
             <div class="pcard">
               <div class="pimg">
-                <img src="https://kaiserengineering.kz/upload/resize_cache/medialibrary/c36/248_175_2/cizhs2pu2ko02km0120aqik0y9yw0378.jpg" alt="Мост короткий" style="max-width:90%;max-height:160px;object-fit:contain;"/>
+                <img src="data:image/png;base64,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" alt="Мост короткий" style="max-width:90%;max-height:160px;object-fit:contain;"/>
               </div>
               <div class="pb">
                 <div class="pc">Фитинги полипропиленовые</div>
@@ -545,7 +547,7 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
             <!-- 10. Заглушка -->
             <div class="pcard">
               <div class="pimg">
-                <img src="https://kaiserengineering.kz/upload/medialibrary/237/8cnautedystt6bb7mhbzf3otyipwt254.jpg" alt="Заглушка PP-R" style="max-width:90%;max-height:160px;object-fit:contain;"/>
+                <img src="data:image/png;base64,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" alt="Заглушка PP-R" style="max-width:90%;max-height:160px;object-fit:contain;"/>
               </div>
               <div class="pb">
                 <div class="pc">Фитинги полипропиленовые</div>
@@ -648,7 +650,7 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
         <h4>Контакты</h4>
         <div class="fcts">
           <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div class="fct"><strong>+7 775 819-12-32</strong></div></div>
-          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong>santehform@gmail.com</strong></div></div>
+          <div class="fcr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="fct"><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef9c8e819b8a8789809d82af88828e8683c18c8082">[email&#160;protected]</a></strong></div></div>
         </div>
       </div>
     </div>
@@ -658,7 +660,7 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMenu(){
   document.getElementById('burger').classList.toggle('open');
   document.getElementById('mobNav').classList.toggle('open');
@@ -692,17 +694,4 @@ document.querySelectorAll('.pcard').forEach(el => {
   el.style.transition = 'opacity .45s ease, transform .45s ease';
   obs.observe(el);
 });
-if (location.hash === '#fittings') setTimeout(() => scr('fittings'), 100);
-</script>
-<script>
-// Защита от CF email protection
-(function(){
-  var u='santehform';var d='gmail.com';var e=u+'@'+d;
-  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
-    a.href='mailto:'+e;
-    if(a.textContent.indexOf('@')===-1||a.textContent.indexOf('protected')!==-1){a.textContent=e;}
-  });
-})();
-</script>
-</body>
-</html>
+if (location.hash === '#fittings') setTimeout(() => scr('fittings
