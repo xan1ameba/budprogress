@@ -238,9 +238,9 @@ a.nl:hover,a.nl.active{color:var(--navy);background:var(--blue-pale)}
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="container">
-    <div class="tbl"><span>🕐 Пн–Пт: 9:00–18:00</span></div>
+    <div class="tbl"></div>
     <div class="tbr">
-      <a href="mailto:santehform@gmail.com">santehform@gmail.com</a>
+      <a href="mailto:santehform@gmail.com" id="email-link">santehform@gmail.com</a>
       <a href="tel:+87758191232" class="tbph">+7 775 819-12-32</a>
     </div>
   </div>
@@ -792,6 +792,16 @@ document.querySelectorAll('.pcard').forEach(el => {
   obs.observe(el);
 });
 if (location.hash === '#fittings') setTimeout(() => scr('fittings'), 100);
+</script>
+<script>
+// Защита от CF email protection
+(function(){
+  var u='santehform';var d='gmail.com';var e=u+'@'+d;
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    a.href='mailto:'+e;
+    if(a.textContent.indexOf('@')===-1||a.textContent.indexOf('protected')!==-1){a.textContent=e;}
+  });
+})();
 </script>
 </body>
 </html>
